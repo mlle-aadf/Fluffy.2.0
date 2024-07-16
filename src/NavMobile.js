@@ -4,9 +4,21 @@ import { useState } from "react";
 
 
 const NavMobile = () => {
-    // const links = [
-    //     {text: "HOME", linkTo: ""}
+    
+    // const linksEN = [
+    //     {text: "HOME", linkTo: div},
+    //     {text: "ABOUT", linkTo: div},
+    //     {text: "CONTACT", linkTo: div},
     // ]
+
+    // const linksFR = [
+    //     {text: "ACCUEIL", linkTo: div},
+    //     {text: "À PROPOS", linkTo: div},
+    //     {text: "CONTACT", linkTo: div},
+    // ]
+
+    // set useContext() for ENG or FR display
+    // Text onClick => handler(section), scrolls to linksENG.linkTo/linksFR.linkTo depending on context
 
     const [expanded, setExpanded] = useState(false)
     const expandMenu = () => {
