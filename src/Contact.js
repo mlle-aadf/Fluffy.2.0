@@ -45,6 +45,7 @@ const FlexBox = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
+  height: 100vh;
 `;
 
 const ColoredSpan = styled.span`
