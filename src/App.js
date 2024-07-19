@@ -1,10 +1,9 @@
-//import logo from './logo.svg';
-//import './App.css';
+import NavMobile from "./NavMobile";
 
 function App() {
   return (
     <div className="App">
-     
+      <NavMobile/>
     </div>
   );
 }
