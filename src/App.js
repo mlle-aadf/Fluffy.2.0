@@ -1,13 +1,18 @@
 import NavMobile from "./NavMobile";
+
+import Nav from "./Nav";
+import Home from "./Home";
 import Contact from "./Contact";
 
 function App() {
   return (
     <div className="App">
-      <NavMobile />
+      
+      <Nav/>
+      {/* <NavMobile /> */}
       
       <div id="home" style={style}>
-        HOME PAGE
+        <Home/>
       </div>
 
       <div id="about" style={style}>
