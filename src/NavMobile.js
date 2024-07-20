@@ -30,10 +30,10 @@ const NavMobile = () => {
             <MenuIcon onClick={expandMenu} style={{display:`${expanded === false ? "block" : "none"}`}}/>
             <Container style={{display:`${expanded === false ? "none" : "block"}`}}>
                 <CloseIcon onClick={expandMenu}/>
-                <Text>HOME</Text>
-                <Text>ABOUT</Text>
-                <Text>CONTACT</Text>
-                <Text>FR</Text>
+                <Text><a href="#home">HOME</a></Text>
+                <Text><a href="#about">ABOUT</a></Text>
+                <Text><a href="#contact">CONTACT</a></Text>
+                {/* <Text>FR</Text> */}
             </Container>
         </>
     );
@@ -43,17 +43,20 @@ export default NavMobile;
 
 const MenuIcon = styled(IoMenu)`
     font-size: 2.5rem;
-    position: fixed;
+    position: sticky;
     top: 1rem;
+    float: right;
     right: 1.5rem;
-`
+    `
 
 const Container = styled.div`
     background-color: var(--lightPink);
     color: var(--darkPink);
-    width: 60%;
+    width: 60vw;
     height: 100vh;
-    float: right;
+    position: fixed;
+    right: 0;
+    /* float: right; */
     text-align: right;
     padding-right: 2rem;
 `
