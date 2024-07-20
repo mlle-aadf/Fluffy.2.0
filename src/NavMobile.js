@@ -28,11 +28,11 @@ const NavMobile = () => {
     return (
         <>
             <MenuIcon onClick={expandMenu} style={{display:`${expanded === false ? "block" : "none"}`}}/>
-            <Container style={{display:`${expanded === false ? "none" : "block"}`}}>
+            <Container style={{display:`${expanded === false ? "none" : "flex"}`}}>
                 <CloseIcon onClick={expandMenu}/>
-                <Text><a href="#home">HOME</a></Text>
-                <Text><a href="#about">ABOUT</a></Text>
-                <Text><a href="#contact">CONTACT</a></Text>
+                <Text href="#home">HOME</Text>
+                <Text href="#about">ABOUT</Text>
+                <Text href="#contact">CONTACT</Text>
                 {/* <Text>FR</Text> */}
             </Container>
         </>
@@ -43,30 +43,33 @@ export default NavMobile;
 
 const MenuIcon = styled(IoMenu)`
     font-size: 2.5rem;
-    position: sticky;
+    position: fixed;
     top: 1rem;
     float: right;
     right: 1.5rem;
     `
 
 const Container = styled.div`
+    flex-direction: column;
+    align-items: end;
     background-color: var(--lightPink);
     color: var(--darkPink);
-    width: 60vw;
+    width: 60%;
     height: 100vh;
     position: fixed;
     right: 0;
     /* float: right; */
-    text-align: right;
+    /* text-align: right; */
     padding-right: 2rem;
 `
 
-const Text = styled.h1`
+const Text = styled.a`
+    text-decoration: none;
     font-size: 1.75rem;
     font-weight: 100;
     margin: 1.5rem 0;
     color: var(--darkPink);
-    `
+`
 
 const CloseIcon = styled(IoCloseOutline)`
     font-size: 2.5rem;

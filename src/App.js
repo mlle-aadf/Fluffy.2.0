@@ -1,5 +1,4 @@
 import NavMobile from "./NavMobile";
-
 import Nav from "./Nav";
 import Home from "./Home";
 import Contact from "./Contact";
@@ -11,7 +10,7 @@ function App() {
       <Nav/>
       {/* <NavMobile /> */}
       
-      <div id="home" style={style}>
+      <div id="home">
         <Home/>
       </div>
 
@@ -20,7 +19,7 @@ function App() {
       </div>
 
       <div id="contact">
-        <Contact />
+        {/* <Contact /> */}
       </div>
 
     </div>
