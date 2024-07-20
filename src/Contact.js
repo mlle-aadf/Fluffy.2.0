@@ -1,41 +1,47 @@
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
 
 import FluffyDonutsFullLogo from "../src/assets/FluffyDonutsFullLogo.png";
 import igIcon from "../src/assets/igIcon.png";
 
 const Contact = () => {
+  
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  
   return (
-    <Container>
-      <FlexBox>
-        <div>
-          <SpanDiv>
-            <ColoredSpan color="#BEEBD6">HOURS: </ColoredSpan>
-            <ColoredSpan>L à D, 8h à 17h</ColoredSpan>
-          </SpanDiv>
-          <SpanDiv>
-            <ColoredSpan color="#FDE9DE">ADDRESS: </ColoredSpan>
-            <ColoredSpan>123 PLACEHOLDER STREET</ColoredSpan>
-          </SpanDiv>
-          <SpanDiv>
-            <ColoredSpan color="#DA8694">EMAIL: </ColoredSpan>
-            <ColoredSpan>FLUFFYDONUTS@GMAIL.COM</ColoredSpan>
-          </SpanDiv>
-          <SpanDiv>
-            <ColoredSpan color="#80CBB3">PHONE: </ColoredSpan>
-            <ColoredSpan>514-514-5514</ColoredSpan>
-          </SpanDiv>
-          <IgLink
-            href="https://www.instagram.com/fluffydonutsmtl/"
-            target="blank"
-          >
-            <img src={igIcon} alt="igIcon" />
-          </IgLink>
-        </div>
-        <div>
-          <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
-        </div>
-      </FlexBox>
-    </Container>
+    <>
+      {!isMobile && <Container>
+        <FlexBox>
+          <div>
+            <SpanDiv>
+              <ColoredSpan color="#BEEBD6">HOURS: </ColoredSpan>
+              <ColoredSpan>L à D, 8h à 17h</ColoredSpan>
+            </SpanDiv>
+            <SpanDiv>
+              <ColoredSpan color="#FDE9DE">ADDRESS: </ColoredSpan>
+              <ColoredSpan>123 PLACEHOLDER STREET</ColoredSpan>
+            </SpanDiv>
+            <SpanDiv>
+              <ColoredSpan color="#DA8694">EMAIL: </ColoredSpan>
+              <ColoredSpan>FLUFFYDONUTS@GMAIL.COM</ColoredSpan>
+            </SpanDiv>
+            <SpanDiv>
+              <ColoredSpan color="#80CBB3">PHONE: </ColoredSpan>
+              <ColoredSpan>514-514-5514</ColoredSpan>
+            </SpanDiv>
+            <IgLink
+              href="https://www.instagram.com/fluffydonutsmtl/"
+              target="blank"
+            >
+              <img src={igIcon} alt="igIcon" />
+            </IgLink>
+          </div>
+          <div>
+            <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
+          </div>
+        </FlexBox>
+      </Container>}
+    </>
   );
 };
 

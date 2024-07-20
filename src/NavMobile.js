@@ -5,20 +5,18 @@ import { useState } from "react";
 
 const NavMobile = () => {
     
-    // const linksEN = [
-    //     {text: "HOME", linkTo: div},
-    //     {text: "ABOUT", linkTo: div},
-    //     {text: "CONTACT", linkTo: div},
-    // ]
-
-    // const linksFR = [
-    //     {text: "ACCUEIL", linkTo: div},
-    //     {text: "À PROPOS", linkTo: div},
-    //     {text: "CONTACT", linkTo: div},
-    // ]
-
-    // set useContext() for ENG or FR display
-    // Text onClick => handler(section), scrolls to linksENG.linkTo/linksFR.linkTo depending on context
+     // toggles menu visibility after scrolling past first page
+     const handleScroll = (event) => {
+        const mobileNav = document.getElementById("mobileNav")
+        if (window.scrollY > window.innerHeight) {
+            mobileNav.style.opacity = 1
+        } else {
+            mobileNav.style.opacity = 0
+            
+        }
+    }
+    
+    window.addEventListener('scroll', handleScroll);
 
     const [expanded, setExpanded] = useState(false)
     const expandMenu = () => {
@@ -27,7 +25,7 @@ const NavMobile = () => {
     
     return (
         <>
-            <MenuIcon onClick={expandMenu} style={{display:`${expanded === false ? "block" : "none"}`}}/>
+            <MenuIcon id="mobileNav" onClick={expandMenu} style={{display:`${expanded === false ? "block" : "none"}`}}/>
             <Container style={{display:`${expanded === false ? "none" : "flex"}`}}>
                 <CloseIcon onClick={expandMenu}/>
                 <Text href="#home">HOME</Text>

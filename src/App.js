@@ -14,12 +14,12 @@ function App() {
         <Home/>
       </div>
 
-      <div id="about" style={style}>
+      <div id="about" style={{ height: "100vh"}}>
         ABOUT
       </div>
 
       <div id="contact">
-        {/* <Contact /> */}
+        <Contact />
       </div>
 
     </div>
@@ -28,7 +28,3 @@ function App() {
 
 export default App;
 
-
-const style = {
-  height: "100vh"
-}
