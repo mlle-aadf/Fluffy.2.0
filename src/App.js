@@ -1,4 +1,3 @@
-import NavMobile from "./NavMobile";
 import Nav from "./Nav";
 import Home from "./Home";
 import Contact from "./Contact";
@@ -8,7 +7,6 @@ function App() {
     <div className="App">
       
       <Nav/>
-      {/* <NavMobile /> */}
       
       <div id="home">
         <Home/>

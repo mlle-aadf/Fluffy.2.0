@@ -10,62 +10,69 @@ const Contact = () => {
   
   return (
     <>
-      {!isMobile && <Container>
-        <FlexBox>
+        <FlexContainer fontSize={isMobile ? "1.25rem" : "30px"}>
           <div>
             <SpanDiv>
-              <ColoredSpan color="#BEEBD6">HOURS: </ColoredSpan>
+              <ColoredSpan color="#BEEBD6">HOURS: </ColoredSpan>{isMobile && <br/>}
               <ColoredSpan>L à D, 8h à 17h</ColoredSpan>
             </SpanDiv>
             <SpanDiv>
-              <ColoredSpan color="#FDE9DE">ADDRESS: </ColoredSpan>
+              <ColoredSpan color="#FDE9DE">ADDRESS: </ColoredSpan>{isMobile && <br/>}
               <ColoredSpan>123 PLACEHOLDER STREET</ColoredSpan>
             </SpanDiv>
             <SpanDiv>
-              <ColoredSpan color="#DA8694">EMAIL: </ColoredSpan>
+              <ColoredSpan color="#DA8694">EMAIL: </ColoredSpan>{isMobile && <br/>}
               <ColoredSpan>FLUFFYDONUTS@GMAIL.COM</ColoredSpan>
             </SpanDiv>
             <SpanDiv>
-              <ColoredSpan color="#80CBB3">PHONE: </ColoredSpan>
+              <ColoredSpan color="#80CBB3">PHONE: </ColoredSpan>{isMobile && <br/>}
               <ColoredSpan>514-514-5514</ColoredSpan>
             </SpanDiv>
-            <IgLink
-              href="https://www.instagram.com/fluffydonutsmtl/"
-              target="blank"
-            >
-              <img src={igIcon} alt="igIcon" />
-            </IgLink>
+            
+            <IgDiv justify={isMobile && "center"} top={isMobile && "64px"}>
+              <IgLink
+                href="https://www.instagram.com/fluffydonutsmtl/"
+                target="blank"
+              >
+                <img src={igIcon} alt="igIcon" height={isMobile && "40px"}/>
+              </IgLink>
+            </IgDiv>
           </div>
-          <div>
+        
+          {!isMobile && <div>
             <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
-          </div>
-        </FlexBox>
-      </Container>}
+          </div>}
+        </FlexContainer>
     </>
   );
 };
 
-const Container = styled.div``;
 
-const FlexBox = styled.div`
+const FlexContainer = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
   height: 100vh;
+  font-size: ${(props) => props.fontSize};
 `;
 
 const ColoredSpan = styled.span`
   color: ${(props) => props.color};
-  font-size: 30px;
 `;
 
 const SpanDiv = styled.div`
   margin-bottom: 30px;
 `;
 
+const IgDiv = styled.div`
+  display: flex;
+  justify-content:  ${(props) => props.justify};
+  margin-top:  ${(props) => props.top};
+`
+
 const IgLink = styled.a`
   cursor: pointer;
-
+  
   img {
     transition: transform 0.3s;
 

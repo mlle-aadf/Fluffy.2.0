@@ -5,29 +5,23 @@ import { useState } from "react";
 
 const NavMobile = () => {
     
-     // toggles menu visibility after scrolling past first page
+    const [expanded, setExpanded] = useState(false)
+
+    // toggles menu visibility after scrolling past first page
      const handleScroll = (event) => {
         const mobileNav = document.getElementById("mobileNav")
-        if (window.scrollY > window.innerHeight) {
-            mobileNav.style.opacity = 1
-        } else {
-            mobileNav.style.opacity = 0
-            
-        }
+        
+        window.scrollY > window.innerHeight 
+        ? mobileNav.style.opacity = 1 
+        : mobileNav.style.opacity = 0
     }
-    
     window.addEventListener('scroll', handleScroll);
 
-    const [expanded, setExpanded] = useState(false)
-    const expandMenu = () => {
-        setExpanded(!expanded)
-    }
-    
     return (
         <>
-            <MenuIcon id="mobileNav" onClick={expandMenu} style={{display:`${expanded === false ? "block" : "none"}`}}/>
+            <MenuIcon id="mobileNav" onClick={() => setExpanded(!expanded)} style={{display:`${expanded === false ? "block" : "none"}`}}/>
             <Container style={{display:`${expanded === false ? "none" : "flex"}`}}>
-                <CloseIcon onClick={expandMenu}/>
+                <CloseIcon onClick={() => setExpanded(!expanded)}/>
                 <Text href="#home">HOME</Text>
                 <Text href="#about">ABOUT</Text>
                 <Text href="#contact">CONTACT</Text>
@@ -45,7 +39,7 @@ const MenuIcon = styled(IoMenu)`
     top: 1rem;
     float: right;
     right: 1.5rem;
-    `
+`
 
 const Container = styled.div`
     flex-direction: column;
@@ -56,8 +50,6 @@ const Container = styled.div`
     height: 100vh;
     position: fixed;
     right: 0;
-    /* float: right; */
-    /* text-align: right; */
     padding-right: 2rem;
 `
 
