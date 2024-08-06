@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { IoCloseOutline, IoMenu } from "react-icons/io5";
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
+
 
 
 const NavMobile = () => {
@@ -15,16 +17,19 @@ const NavMobile = () => {
         ? mobileNav.style.opacity = 1 
         : mobileNav.style.opacity = 0
     }
-    window.addEventListener('scroll', handleScroll);
+
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+
+    isMobile && window.addEventListener('scroll', handleScroll);
 
     return (
         <>
             <MenuIcon id="mobileNav" onClick={() => setExpanded(!expanded)} style={{display:`${expanded === false ? "block" : "none"}`}}/>
             <Container style={{display:`${expanded === false ? "none" : "flex"}`}}>
                 <CloseIcon onClick={() => setExpanded(!expanded)}/>
-                <Text href="#home">HOME</Text>
-                <Text href="#about">ABOUT</Text>
-                <Text href="#contact">CONTACT</Text>
+                <LinkText href="#home">HOME</LinkText>
+                <LinkText href="#about">ABOUT</LinkText>
+                <LinkText href="#contact">CONTACT</LinkText>
                 {/* <Text>FR</Text> */}
             </Container>
         </>
@@ -53,7 +58,7 @@ const Container = styled.div`
     padding-right: 2rem;
 `
 
-const Text = styled.a`
+const LinkText = styled.a`
     text-decoration: none;
     font-size: 1.75rem;
     font-weight: 100;
