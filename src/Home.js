@@ -7,12 +7,14 @@ import FluffyDonutsFullLogo from "./assets/FluffyDonutsFullLogo.png";
 import FluffyDonutsName from "./assets/FluffyDonutsTitle.png";
 import igIcon from "./assets/igIcon.png";
 
+// import Nav from "./Nav";
 
 const Home = () => {
     const isMobile = useMediaQuery({ maxWidth: 767 });
    
     return (
         <Container style={{ height: "100vh" }}>
+          
             <FluffyLogo src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
             <Tagline width={isMobile ? "45%" : "auto"}>
                 PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES
@@ -42,11 +44,14 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  /* border: 0.2px solid fuchsia; */
 `;
 
 const FluffyLogo = styled.img`
   height: 50vh;
   max-width: 100vw;
+  margin-top: 8vh;
 `;
 
 const Tagline = styled.p`
