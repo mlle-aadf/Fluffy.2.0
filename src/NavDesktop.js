@@ -40,11 +40,11 @@ const NavDesktop = () => {
 
     return (
         <DesktopContainer>
-            {/* <Welcome>WELCOME</Welcome> */}
+            <Welcome>WELCOME 👋</Welcome>
 
-            {links.map((link) =>
+            {/* {links.map((link) =>
                 <DesktopLink href={`#${link.text}`}>{link.text}</DesktopLink>
-            )}
+            )} */}
         </DesktopContainer>
     );
 };
@@ -56,7 +56,6 @@ const DesktopContainer = styled.div`
   height: 20vh;
   margin-bottom: -16vh;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   position: sticky;
   top: 0%;
@@ -70,21 +69,19 @@ const DesktopLink = styled.a`
     align-self: center;
     text-decoration: none;
     color: white;
-    padding: 1rem 4rem 0 4rem;
-    font-size: 1.5rem;
+    padding: 1rem 3rem 0 3rem;
     cursor: pointer;
     
     /* border: 2px solid fuchsia; */
     `;
 
-// const Welcome = styled.h1`
-//     align-self: end;
-//     padding-top: 7vh;
-//     font-size: 3rem;
-//     font-weight: 300;
+const Welcome = styled.h1`
+    align-self: center;
+    padding-top: 3vh;
+    font-weight: lighter;
 
-//     /* border: 2px solid fuchsia; */
-// `
+    /* border: 2px solid fuchsia; */
+`
 // animate
 // welcome scale-in 1s
 // plant-based delay 1s bg-pan 2

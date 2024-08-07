@@ -49,17 +49,15 @@ const Container = styled.div`
 `;
 
 const FluffyLogo = styled.img`
-  height: 50vh;
-  max-width: 100vw;
+  width: 70vw;
   margin-top: 7vh;
 `;
 
 const Tagline = styled.p`
   width: ${(props) => props.width};
-  font-size: 1.75em;
+  font-size: 1.25em;
   text-align: right;
-  margin: 2.25em 0;
-  /* margin-bottom: 2em; */
+  margin: 1.25em 0 1em 0;
   letter-spacing: 0.1rem;
 `;
 
