@@ -51,14 +51,16 @@ const Container = styled.div`
 const FluffyLogo = styled.img`
   height: 50vh;
   max-width: 100vw;
-  margin-top: 8vh;
+  margin-top: 7vh;
 `;
 
 const Tagline = styled.p`
   width: ${(props) => props.width};
-  font-size: 1.25em;
-  text-align: center;
-  margin-bottom: 2em;
+  font-size: 1.75em;
+  text-align: right;
+  margin: 2.25em 0;
+  /* margin-bottom: 2em; */
+  letter-spacing: 0.1rem;
 `;
 
 const IgLink = styled.a`

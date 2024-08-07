@@ -32,7 +32,7 @@ const NavMobile = () => {
             const clientHeight = window.innerHeight;
             const currentHeight = window.scrollY;
 
-            currentHeight > clientHeight
+            currentHeight >= clientHeight-100
                 ? (mobileNav.style.opacity = 1)
                 : (mobileNav.style.opacity = 0);
         };
