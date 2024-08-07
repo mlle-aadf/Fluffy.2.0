@@ -1,8 +1,10 @@
 import styled from "styled-components";
+
+import MmDonut from "./assets/mm_donut.PNG"
+import { useEffect, useState } from "react";
 // import { useEffect } from "react";
 
 const NavDesktop = () => {
-
     const links = [
         {
             text: "HOME",
@@ -22,6 +24,18 @@ const NavDesktop = () => {
         },
     ];
 
+    const [welcomeAnimate, setWelcomeAnimate] = useState("scale-in-center")
+
+    useEffect(()=> {
+        const welcomeID = setTimeout(()=> setWelcomeAnimate("scale-out-center"), 3000)
+
+        return () => {
+            clearTimeout(welcomeID)
+        }
+    }, [])
+
+    
+
     // useEffect(() => {
     //     const handleScroll = () => {
     //         const clientHeight = document.body.clientHeight;
@@ -39,19 +53,23 @@ const NavDesktop = () => {
     // }, []);
 
     return (
-        <DesktopContainer>
-            <Welcome>WELCOME 👋</Welcome>
+        <Container>
+            <Welcome className={welcomeAnimate}>
+                <Donut src={MmDonut}/>
+                <Text>WELCOME</Text>
+                <Donut src={MmDonut}/>
+            </Welcome>
 
             {/* {links.map((link) =>
                 <DesktopLink href={`#${link.text}`}>{link.text}</DesktopLink>
             )} */}
-        </DesktopContainer>
+        </Container>
     );
 };
 
 export default NavDesktop;
 
-const DesktopContainer = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 20vh;
   margin-bottom: -16vh;
@@ -65,6 +83,11 @@ const DesktopContainer = styled.div`
   /* border: 2px solid aqua; */
   `;
 
+const Welcome = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 const DesktopLink = styled.a`
     align-self: center;
     text-decoration: none;
@@ -75,13 +98,18 @@ const DesktopLink = styled.a`
     /* border: 2px solid fuchsia; */
     `;
 
-const Welcome = styled.h1`
+const Text = styled.h1`
     align-self: center;
-    padding-top: 3vh;
     font-weight: lighter;
+    margin: 3vh 1rem 0 1rem;
 
     /* border: 2px solid fuchsia; */
 `
+
+const Donut = styled.img`
+  height: 2rem;
+  padding-top: 3vh;
+`;
 // animate
 // welcome scale-in 1s
 // plant-based delay 1s bg-pan 2

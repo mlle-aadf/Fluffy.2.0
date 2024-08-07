@@ -16,7 +16,7 @@ const Home = () => {
         <Container style={{ height: "100vh" }}>
           
             <FluffyLogo src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
-            <Tagline width={isMobile ? "45%" : "auto"}>
+            <Tagline width={isMobile ? "55%" : "auto"}>
                 PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES
             </Tagline>
             {!isMobile && (
@@ -56,7 +56,7 @@ const FluffyLogo = styled.img`
 const Tagline = styled.p`
   width: ${(props) => props.width};
   font-size: 1.25em;
-  text-align: right;
+  text-align: center;
   margin: 1.25em 0 1em 0;
   letter-spacing: 0.1rem;
 `;
