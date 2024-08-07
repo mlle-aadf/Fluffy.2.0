@@ -7,27 +7,35 @@ const NavDesktop = () => {
     const links = [
         {
             text: "HOME",
-            color: "#FFF",
+            color: "var(--darkGreen)",
+            active: false
         },
         {
             text: "ABOUT",
-            color: "#FFF",
+            color: "var(--lightGreen)",
+            active: false
         },
         {
             text: "CONTACT",
-            color: "#FFF",
+            color: "var(--darkPink)",
+            active: false
         },
         {
             text: "FR",
-            color: "#FFF",
+            color: "var(--lightPink)",
+            active: false
         },
     ];
 
     const [welcomeAnimate, setWelcomeAnimate] = useState("scale-in-first")
+    const [linkInfo, setLinkInfo] = useState(links)
+    // const [linkActive, setLinkActive] = useState()
+
 
     useEffect(()=> {
+        
         const welcomeIN = setTimeout(()=> {
-            setWelcomeAnimate("scale-out-center")
+            setWelcomeAnimate("scale-out")
         }, 1000)
         
         const welcomeOUT = setTimeout(()=> {
@@ -44,12 +52,24 @@ const NavDesktop = () => {
 
     // useEffect(() => {
     //     const handleScroll = () => {
-    //         const clientHeight = document.body.clientHeight;
+    //         const clientHeight = window.innerHeight;
     //         const entirePage = document.body.scrollHeight;
     //         const currentHeight = window.scrollY;
 
-    //         // console.log(`CLIENT: ${clientHeight} CURRENT: ${currentHeight}`);
-    //         // console.log(`ENTIRE: ${entirePage}`);
+    //         const onHome = currentHeight < clientHeight
+    //         const onAbout = currentHeight >= clientHeight-200 && currentHeight < clientHeight*2
+    //         const onContact = currentHeight >= clientHeight*2
+
+    //         if (onHome) {
+    //             console.log("home page!")
+    //         } else if (onAbout){
+    //             console.log("about page!")
+    //         } else if (onContact) {
+    //             console.log("contact page!")
+                
+    //         }
+
+    //         console.log(`ENTIRE: ${entirePage} CLIENT: ${clientHeight} CURRENT: ${currentHeight}`);
 
     //     };
     //     window.addEventListener("scroll", handleScroll);
@@ -62,13 +82,19 @@ const NavDesktop = () => {
         <Container>
             <Welcome id="welcome" className={welcomeAnimate}>
                 <Donut src={MmDonut}/>
-                <Text>WELCOME</Text>
-                <Donut src={MmDonut}/>
+                <Text>WELCOME 👋</Text>
             </Welcome>
 
             <Links id="links" className="fade-in-first">
-                {links.map((link) =>
-                    <DesktopLink href={`#${link.text}`}>{link.text}</DesktopLink>
+                {linkInfo.map((link) => {
+
+                    const {text, color, active} = link
+                    return (
+
+                        <DesktopLink href={`#${text}`} hoverColor={color} activeColor={active === true ? color : "white"} >{text}</DesktopLink>
+                    )
+                }
+                    
                 )}
             </Links>
         </Container>
@@ -87,9 +113,8 @@ const Container = styled.div`
   top: 0%;
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,0.34) 90%, rgba(0,0,0,0.15) 95%, rgba(0,0,0,0) 100%);
   letter-spacing: 0.2rem;
-  
-  /* border: 2px solid aqua; */
-  `;
+  z-index: 1;
+`;
 
 const Welcome = styled.div`
     display: flex;
@@ -104,11 +129,17 @@ const Links = styled.div`
 const DesktopLink = styled.a`
     align-self: center;
     text-decoration: none;
-    color: white;
-    padding: 1rem 3rem 0 3rem;
+    /* color: white; */
+    color: ${(props) => props.activeColor};
+    padding: 1rem 2.5rem 0 2.5rem;
+    transition: transform 0.2s;
     cursor: pointer;
     
-    /* border: 2px solid fuchsia; */
+    &:hover {
+        color: ${(props) => props.hoverColor};
+        transform: scale(1.2);
+        transition: transform 0.3s;
+    }
 `;
 
 const Text = styled.h1`
@@ -120,12 +151,6 @@ const Text = styled.h1`
 `
 
 const Donut = styled.img`
-  height: 2rem;
+  height: 4rem;
   padding-top: 3vh;
 `;
-// animate
-// welcome scale-in 1s
-// plant-based delay 1s bg-pan 2
-// welcome delay 3s scale-out  1s
-// links delay 4s fade-in 1s
-

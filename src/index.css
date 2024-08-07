@@ -14,7 +14,7 @@ body {
 }
 
 :root{
-  --lightPink: #FDE9DE;
+  --lightPink: #E7D3CA;
   --darkPink: #DA8694;
   --lightGreen: #BEEBD6;
   --darkGreen: #80CBB3;
@@ -24,9 +24,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-
 
 /* animate intro  */
 /* ----------------------------------------------
@@ -64,7 +61,6 @@ code {
             transform: scale(1);
     opacity: 1;
   }
-
 }
 
 
@@ -99,12 +95,12 @@ code {
 }
 
 
-.scale-out-center {
-	-webkit-animation: scale-out-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s both;
-  animation: scale-out-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s both;
+.scale-out {
+	-webkit-animation: scale-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s both;
+  animation: scale-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s both;
 }
 
-@-webkit-keyframes scale-out-center {
+@-webkit-keyframes scale-out {
   0% {
     -webkit-transform: scale(1);
             transform: scale(1);
@@ -116,7 +112,7 @@ code {
     opacity: 1;
   }
 }
-@keyframes scale-out-center {
+@keyframes scale-out {
   0% {
     -webkit-transform: scale(1);
             transform: scale(1);
