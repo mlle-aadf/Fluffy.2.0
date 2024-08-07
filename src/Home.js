@@ -10,32 +10,31 @@ import igIcon from "./assets/igIcon.png";
 // import Nav from "./Nav";
 
 const Home = () => {
-    const isMobile = useMediaQuery({ maxWidth: 767 });
-   
-    return (
-        <Container>
-          
-            <FluffyLogo id="homeLogo" className="scale-in-center" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
-            <Tagline 
-            // className="bg-Color" 
-            width={isMobile ? "55%" : "auto"}>
-                PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES
-            </Tagline>
-            {!isMobile && (
-                <IgLink
-                    href="https://www.instagram.com/fluffydonutsmtl/"
-                    target="blank"
-                >
-                    <img src={igIcon} alt="igIcon" />
-                </IgLink>
-            )}
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-            <Arrow
-                align={isMobile ? "center" : "flex-end"}
-                padding={isMobile ? "0" : "2.5rem"}
-            />
-        </Container>
-    );
+  return (
+    <Container>
+
+      <FluffyLogo id="homeLogo" className="scale-in-second" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
+      <Tagline
+        width={isMobile ? "55%" : "auto"}>
+        PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES
+      </Tagline>
+      {!isMobile && (
+        <IgLink
+          href="https://www.instagram.com/fluffydonutsmtl/"
+          target="blank"
+        >
+          <img className="scale-in-second" src={igIcon} alt="igIcon" />
+        </IgLink>
+      )}
+
+      <Arrow
+        align={isMobile ? "center" : "flex-end"}
+        padding={isMobile ? "0" : "2.5rem"}
+      />
+    </Container>
+  );
 };
 
 export default Home;
@@ -63,17 +62,17 @@ const Tagline = styled.p`
   margin: 1.25em 0 1em 0;
   letter-spacing: 0.1rem;
 
-  background: linear-gradient(270deg,#ffffff, #da8694, #fde9de, #beebd6, #80cbb3, #ffffff);
+  background: linear-gradient(270deg, #da8694, #fde9de, #beebd6, #80cbb3, #ffffff);
   background-size: 1000% 1000%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: bg-color 3s ease 3s 1;
-  -moz-animation: bg-color 3s ease 3s 1;
-  animation: bg-color 3s ease 3s 1;
+  -webkit-animation: bg-color 3s ease 2s 1;
+  -moz-animation: bg-color 3s ease 2s 1;
+  animation: bg-color 3s ease 2s 1, fade-in-second 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 2s both;
 
-  @-moz-keyframes bg-color {
-    0%{background-position:0% 50%}
+  /* @-moz-keyframes bg-color {
+    0%{background-position:0% 50%, }
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
   }
@@ -86,7 +85,7 @@ const Tagline = styled.p`
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
-  }
+  } */
 `;
 
 

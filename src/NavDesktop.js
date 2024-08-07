@@ -23,20 +23,20 @@ const NavDesktop = () => {
         },
     ];
 
-    const [welcomeAnimate, setWelcomeAnimate] = useState("scale-in-center")
+    const [welcomeAnimate, setWelcomeAnimate] = useState("scale-in-first")
 
     useEffect(()=> {
-        // const welcomeID = setTimeout(()=> {
-        //     setWelcomeAnimate("scale-out-center")
-        // }, 1000)
+        const welcomeIN = setTimeout(()=> {
+            setWelcomeAnimate("scale-out-center")
+        }, 1000)
         
-        const removeWelcome = setTimeout(()=> {
+        const welcomeOUT = setTimeout(()=> {
             document.getElementById("welcome").style.display = "none"
             document.getElementById("links").style.display = "flex"
-        }, 7000)
+        }, 3000)
         
         return () => {
-            clearTimeout(removeWelcome)
+            clearTimeout(welcomeIN, welcomeOUT)
         }
     }, [])
 
@@ -66,7 +66,7 @@ const NavDesktop = () => {
                 <Donut src={MmDonut}/>
             </Welcome>
 
-            <Links id="links">
+            <Links id="links" className="fade-in-first">
                 {links.map((link) =>
                     <DesktopLink href={`#${link.text}`}>{link.text}</DesktopLink>
                 )}

@@ -36,12 +36,12 @@ code {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
     
-.scale-in-center {
-  -webkit-animation: scale-in-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: scale-in-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+.scale-in-first {
+  -webkit-animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
-@-webkit-keyframes scale-in-center {
+@-webkit-keyframes scale-in-first {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -53,7 +53,39 @@ code {
     opacity: 1;
   }
 }
-@keyframes scale-in-center {
+@keyframes scale-in-first {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+
+.scale-in-second {
+  -webkit-animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+  animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+}
+
+@-webkit-keyframes scale-in-first {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-first {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -97,12 +129,12 @@ code {
   }
 }
 
-.fade-in-right {
-	-webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4s both;
-  animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4s both;
+.fade-in-first {
+	-webkit-animation: fade-in-first 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in-first 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-@-webkit-keyframes fade-in-right {
+@-webkit-keyframes fade-in-first {
   0% {
     -webkit-transform: translateX(50px);
             transform: translateX(50px);
@@ -114,7 +146,7 @@ code {
     opacity: 1;
   }
 }
-@keyframes fade-in-right {
+@keyframes fade-in-first {
   0% {
     -webkit-transform: translateX(50px);
             transform: translateX(50px);
@@ -125,4 +157,50 @@ code {
             transform: translateX(0);
     opacity: 1;
   }
+}
+
+.fade-in-second {
+	-webkit-animation: fade-in-second 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in-second 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fade-in-second {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-second {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes bg-color {
+  0%{background-position:0% 50%, }
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes bg-color {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-webkit-keyframes bg-color {
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
