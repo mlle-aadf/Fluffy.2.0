@@ -36,7 +36,6 @@ code {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
     
- /* welcome scale-in 1s */
 .scale-in-center {
   -webkit-animation: scale-in-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   animation: scale-in-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
@@ -66,13 +65,11 @@ code {
     opacity: 1;
   }
 }
- 
 
 
-/* welcome delay 3s scale-out  1s */
 .scale-out-center {
-	-webkit-animation: scale-out-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1s both;
-  animation: scale-out-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1s both;
+	-webkit-animation: scale-out-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s both;
+  animation: scale-out-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s both;
 }
 
 @-webkit-keyframes scale-out-center {
@@ -100,7 +97,6 @@ code {
   }
 }
 
-/* links delay 4s fade-in 1s */
 .fade-in-right {
 	-webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4s both;
   animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4s both;

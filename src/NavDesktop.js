@@ -26,17 +26,17 @@ const NavDesktop = () => {
     const [welcomeAnimate, setWelcomeAnimate] = useState("scale-in-center")
 
     useEffect(()=> {
-        const welcomeID = setTimeout(()=> {
-            setWelcomeAnimate("scale-out-center")
-        }, 1000)
+        // const welcomeID = setTimeout(()=> {
+        //     setWelcomeAnimate("scale-out-center")
+        // }, 1000)
         
         const removeWelcome = setTimeout(()=> {
             document.getElementById("welcome").style.display = "none"
             document.getElementById("links").style.display = "flex"
-        }, 3000)
+        }, 7000)
         
         return () => {
-            clearTimeout(welcomeID, removeWelcome)
+            clearTimeout(removeWelcome)
         }
     }, [])
 

@@ -13,9 +13,9 @@ const Home = () => {
     const isMobile = useMediaQuery({ maxWidth: 767 });
    
     return (
-        <Container style={{ height: "100vh" }}>
+        <Container>
           
-            <FluffyLogo src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
+            <FluffyLogo id="homeLogo" className="scale-in-center" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
             <Tagline 
             // className="bg-Color" 
             width={isMobile ? "55%" : "auto"}>
@@ -52,7 +52,8 @@ const Container = styled.div`
 
 const FluffyLogo = styled.img`
   width: 70vw;
-  margin-top: 7vh;
+  max-width: 70vw;
+  margin-top: 8vh;
 `;
 
 const Tagline = styled.p`
@@ -67,9 +68,9 @@ const Tagline = styled.p`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: bg-color 4s ease 4s 1;
-  -moz-animation: bg-color 4s ease 4s 1;
-  animation: bg-color 4s ease 4s 1;
+  -webkit-animation: bg-color 3s ease 3s 1;
+  -moz-animation: bg-color 3s ease 3s 1;
+  animation: bg-color 3s ease 3s 1;
 
   @-moz-keyframes bg-color {
     0%{background-position:0% 50%}
