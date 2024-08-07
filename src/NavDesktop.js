@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import MmDonut from "./assets/mm_donut.PNG"
 import { useEffect, useState } from "react";
-// import { useEffect } from "react";
 
 const NavDesktop = () => {
     const links = [
@@ -33,7 +32,8 @@ const NavDesktop = () => {
         
         const removeWelcome = setTimeout(()=> {
             document.getElementById("welcome").style.display = "none"
-        }, 4000)
+            document.getElementById("links").style.display = "flex"
+        }, 3000)
         
         return () => {
             clearTimeout(welcomeID, removeWelcome)
@@ -66,9 +66,11 @@ const NavDesktop = () => {
                 <Donut src={MmDonut}/>
             </Welcome>
 
-            {links.map((link) =>
-                <DesktopLink href={`#${link.text}`}>{link.text}</DesktopLink>
-            )}
+            <Links id="links">
+                {links.map((link) =>
+                    <DesktopLink href={`#${link.text}`}>{link.text}</DesktopLink>
+                )}
+            </Links>
         </Container>
     );
 };
@@ -91,6 +93,11 @@ const Container = styled.div`
 
 const Welcome = styled.div`
     display: flex;
+    align-items: center;
+`
+
+const Links = styled.div`
+    display: none;
     align-items: center;
 `
 
