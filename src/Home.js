@@ -16,7 +16,9 @@ const Home = () => {
         <Container style={{ height: "100vh" }}>
           
             <FluffyLogo src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
-            <Tagline width={isMobile ? "55%" : "auto"}>
+            <Tagline 
+            // className="bg-Color" 
+            width={isMobile ? "55%" : "auto"}>
                 PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES
             </Tagline>
             {!isMobile && (
@@ -59,7 +61,35 @@ const Tagline = styled.p`
   text-align: center;
   margin: 1.25em 0 1em 0;
   letter-spacing: 0.1rem;
+
+  background: linear-gradient(270deg,#ffffff, #da8694, #fde9de, #beebd6, #80cbb3, #ffffff);
+  background-size: 1000% 1000%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: bg-color 4s ease 4s 1;
+  -moz-animation: bg-color 4s ease 4s 1;
+  animation: bg-color 4s ease 4s 1;
+
+  @-moz-keyframes bg-color {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @keyframes bg-color {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @-webkit-keyframes bg-color {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+  }
 `;
+
+
+
 
 const IgLink = styled.a`
   cursor: pointer;

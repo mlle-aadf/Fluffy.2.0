@@ -27,10 +27,16 @@ const NavDesktop = () => {
     const [welcomeAnimate, setWelcomeAnimate] = useState("scale-in-center")
 
     useEffect(()=> {
-        const welcomeID = setTimeout(()=> setWelcomeAnimate("scale-out-center"), 3000)
-
+        const welcomeID = setTimeout(()=> {
+            setWelcomeAnimate("scale-out-center")
+        }, 1000)
+        
+        const removeWelcome = setTimeout(()=> {
+            document.getElementById("welcome").style.display = "none"
+        }, 4000)
+        
         return () => {
-            clearTimeout(welcomeID)
+            clearTimeout(welcomeID, removeWelcome)
         }
     }, [])
 
@@ -54,15 +60,15 @@ const NavDesktop = () => {
 
     return (
         <Container>
-            <Welcome className={welcomeAnimate}>
+            <Welcome id="welcome" className={welcomeAnimate}>
                 <Donut src={MmDonut}/>
                 <Text>WELCOME</Text>
                 <Donut src={MmDonut}/>
             </Welcome>
 
-            {/* {links.map((link) =>
+            {links.map((link) =>
                 <DesktopLink href={`#${link.text}`}>{link.text}</DesktopLink>
-            )} */}
+            )}
         </Container>
     );
 };
@@ -96,7 +102,7 @@ const DesktopLink = styled.a`
     cursor: pointer;
     
     /* border: 2px solid fuchsia; */
-    `;
+`;
 
 const Text = styled.h1`
     align-self: center;
