@@ -26,12 +26,37 @@ code {
 }
 
 
-.scale-in-first {
-  -webkit-animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+.scale-in {
+  -webkit-animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
+@-moz-keyframes scale-in {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
 
-@-webkit-keyframes scale-in-first {
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes scale-in {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in {
   0% {
     -webkit-transform: scale(0);
     transform: scale(0);
@@ -45,25 +70,6 @@ code {
   }
 }
 
-@keyframes scale-in-first {
-  0% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
-.scale-in-second {
-  -webkit-animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
-  animation: scale-in-first 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
-}
 
 .scale-out {
   -webkit-animation: scale-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 2s both;
@@ -83,7 +89,7 @@ code {
     opacity: 1;
   }
 }
-@-moz-keyframes scale-out {
+@-webkit-keyframes scale-out {
   0% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -96,7 +102,6 @@ code {
     opacity: 1;
   }
 }
-
 @keyframes scale-out {
   0% {
     -webkit-transform: scale(1);
@@ -125,7 +130,6 @@ code {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fade-in-right {
   0% {
     -webkit-transform: translateX(50px);
@@ -139,7 +143,6 @@ code {
     opacity: 1;
   }
 }
-
 @keyframes fade-in-right {
   0% {
     -webkit-transform: translateX(50px);
@@ -164,7 +167,6 @@ code {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -174,7 +176,6 @@ code {
     opacity: 1;
   }
 }
-
 @keyframes fade-in {
   
   0% {
@@ -185,8 +186,6 @@ code {
     opacity: 1;
   }
 }
-
-
 
 
 @-moz-keyframes bg-color {
@@ -202,7 +201,6 @@ code {
     background-position: 0% 50%
   }
 }
-
 @keyframes bg-color {
   0% {
     background-position: 0% 50%
@@ -216,7 +214,6 @@ code {
     background-position: 0% 50%
   }
 }
-
 @-webkit-keyframes bg-color {
   0% {
     background-position: 0% 50%

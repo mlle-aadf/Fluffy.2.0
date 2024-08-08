@@ -50,6 +50,9 @@ const FluffyLogo = styled.img`
   width: 65vw;
   max-width: 70vw;
   margin-top: 8vh;
+
+  -webkit-animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+  animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
 `;
 
 const Tagline = styled.p`
@@ -70,6 +73,8 @@ const Tagline = styled.p`
 `;
 
 const IgLink = styled.a`
+  -webkit-animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+  animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
   cursor: pointer;
 
   img {

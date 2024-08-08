@@ -27,7 +27,7 @@ const NavDesktop = () => {
         },
     ];
 
-    const [welcomeAnimation, setWelcomeAnimation] = useState("scale-in-first")
+    const [welcomeAnimation, setWelcomeAnimation] = useState("scale-in")
     const [linkInfo, setLinkInfo] = useState(links)
     // const [linkActive, setLinkActive] = useState()
 
