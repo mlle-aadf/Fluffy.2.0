@@ -27,7 +27,7 @@ const NavDesktop = () => {
         },
     ];
 
-    const [welcomeAnimate, setWelcomeAnimate] = useState("scale-in-first")
+    const [welcomeAnimation, setWelcomeAnimation] = useState("scale-in-first")
     const [linkInfo, setLinkInfo] = useState(links)
     // const [linkActive, setLinkActive] = useState()
 
@@ -35,7 +35,7 @@ const NavDesktop = () => {
     useEffect(()=> {
         
         const welcomeIN = setTimeout(()=> {
-            setWelcomeAnimate("scale-out")
+            setWelcomeAnimation("scale-out")
         }, 1000)
         
         const welcomeOUT = setTimeout(()=> {
@@ -80,7 +80,7 @@ const NavDesktop = () => {
 
     return (
         <Container>
-            <Welcome id="welcome" className={welcomeAnimate}>
+            <Welcome id="welcome" className={welcomeAnimation}>
                 <Donut src={MmDonut}/>
                 <Text>WELCOME 👋</Text>
             </Welcome>
@@ -104,16 +104,16 @@ const NavDesktop = () => {
 export default NavDesktop;
 
 const Container = styled.div`
-  width: 100%;
-  height: 20vh;
-  margin-bottom: -16vh;
-  display: flex;
-  justify-content: center;
-  position: sticky;
-  top: 0%;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,0.34) 90%, rgba(0,0,0,0.15) 95%, rgba(0,0,0,0) 100%);
-  letter-spacing: 0.2rem;
-  z-index: 1;
+    width: 100%;
+    height: 20vh;
+    margin-bottom: -16vh;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0%;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,0.34) 90%, rgba(0,0,0,0.15) 95%, rgba(0,0,0,0) 100%);
+    letter-spacing: 0.2rem;
+    z-index: 1;
 `;
 
 const Welcome = styled.div`
@@ -124,6 +124,9 @@ const Welcome = styled.div`
 const Links = styled.div`
     display: none;
     align-items: center;
+    -webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
 `
 
 const DesktopLink = styled.a`
@@ -138,7 +141,7 @@ const DesktopLink = styled.a`
     &:hover {
         color: ${(props) => props.hoverColor};
         transform: scale(1.2);
-        transition: transform 0.3s;
+        transition: transform 0.2s;
     }
 `;
 

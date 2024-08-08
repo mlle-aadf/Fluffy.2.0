@@ -30,7 +30,7 @@ const Home = () => {
 
       <Arrow
         align={isMobile ? "center" : "flex-end"}
-        padding={isMobile ? "0" : "2.5rem"}
+        padding={isMobile ? "0" : "3.5rem"}
       />
     </Container>
   );
@@ -66,7 +66,7 @@ const Tagline = styled.p`
   -webkit-text-fill-color: transparent;
   -webkit-animation: bg-color 3s ease 2s 1;
   -moz-animation: bg-color 3s ease 2s 1;
-  animation: bg-color 3s ease 2s 1, fade-in-second 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
+  animation: bg-color 3s ease 2s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
 `;
 
 const IgLink = styled.a`
@@ -86,4 +86,11 @@ const Arrow = styled(HiArrowLongDown)`
   align-self: ${(props) => props.align};
   padding-right: ${(props) => props.padding};
   height: 32px;
+  opacity: 0;
+
+  /* border: 1px solid fuchsia; */
+
+  -webkit-animation: fade-in 3s linear 3s both;
+  -moz-animation:fade-in 3s linear 3s both;
+  animation: fade-in 3s linear 3s both;
 `;
