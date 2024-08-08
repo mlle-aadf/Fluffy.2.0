@@ -86,9 +86,6 @@ const Arrow = styled(HiArrowLongDown)`
   align-self: ${(props) => props.align};
   padding-right: ${(props) => props.padding};
   height: 32px;
-  opacity: 0;
-
-  /* border: 1px solid fuchsia; */
 
   -webkit-animation: fade-in 3s linear 3s both;
   -moz-animation:fade-in 3s linear 3s both;
