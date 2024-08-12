@@ -14,13 +14,13 @@ const Home = () => {
   return (
     <Container>
 
-      <FluffyLogo id="homeLogo" className="scale-in-second" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
+      <FluffyLogo id="homeLogo" className="scale-fluffy" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
       <Tagline
         width={isMobile ? "55%" : "auto"}>
         PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES
       </Tagline>
       {!isMobile && (
-        <IgLink className="scale-in-second"
+        <IgLink className="scale-fluffy"
           href="https://www.instagram.com/fluffydonutsmtl/"
           target="blank"
         >
@@ -51,8 +51,8 @@ const FluffyLogo = styled.img`
   max-width: 70vw;
   margin-top: 8vh;
 
-  -webkit-animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
-  animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+  animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+  -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
 `;
 
 const Tagline = styled.p`
@@ -62,19 +62,19 @@ const Tagline = styled.p`
   margin: 1em 0;
   letter-spacing: 0.1rem;
 // color-gradient backround animation
-  background: linear-gradient(270deg, #da8694, #fde9de, #beebd6, #80cbb3, #ffffff);
+  background: linear-gradient(270deg, var(--lightPink), var(--lightGreen), white);
   background-size: 1000% 1000%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: bg-color 3s ease 2s 1;
-  -moz-animation: bg-color 3s ease 2s 1;
-  animation: bg-color 3s ease 2s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
+  animation: bg-color 3s ease 1.5s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s 1 both;
+  -webkit-animation: bg-color 3s ease 1.5s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s 1 both;
+  -moz-animation: bg-color 3s ease 1.5s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s 1 both;
 `;
 
 const IgLink = styled.a`
-  -webkit-animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
-  animation: scale-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+  animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s 1 both;
+  -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s 1 both;
   cursor: pointer;
 
   img {
@@ -87,10 +87,11 @@ const IgLink = styled.a`
   }
 `;
 
+
 const Arrow = styled(HiArrowLongDown)`
   align-self: ${(props) => props.align};
   padding-right: ${(props) => props.padding};
-  height: 32px;
+  font-size: 1.5rem;
 
   -webkit-animation: fade-in 3s linear 3s both;
   -moz-animation:fade-in 3s linear 3s both;

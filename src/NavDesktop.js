@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import MmDonut from "./assets/mm_donut.PNG"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const NavDesktop = () => {
     const links = [
@@ -27,16 +27,8 @@ const NavDesktop = () => {
         },
     ];
 
-    const [welcomeAnimation, setWelcomeAnimation] = useState("scale-in")
-    const [linkInfo, setLinkInfo] = useState(links)
-    // const [linkActive, setLinkActive] = useState()
-
 
     useEffect(()=> {
-        
-        const welcomeIN = setTimeout(()=> {
-            setWelcomeAnimation("scale-out")
-        }, 1000)
         
         const welcomeOUT = setTimeout(()=> {
             document.getElementById("welcome").style.display = "none"
@@ -44,57 +36,27 @@ const NavDesktop = () => {
         }, 3000)
         
         return () => {
-            clearTimeout(welcomeIN, welcomeOUT)
+            clearTimeout(welcomeOUT)
         }
     }, [])
 
-    
-
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const clientHeight = window.innerHeight;
-    //         const entirePage = document.body.scrollHeight;
-    //         const currentHeight = window.scrollY;
-
-    //         const onHome = currentHeight < clientHeight
-    //         const onAbout = currentHeight >= clientHeight-200 && currentHeight < clientHeight*2
-    //         const onContact = currentHeight >= clientHeight*2
-
-    //         if (onHome) {
-    //             console.log("home page!")
-    //         } else if (onAbout){
-    //             console.log("about page!")
-    //         } else if (onContact) {
-    //             console.log("contact page!")
-                
-    //         }
-
-    //         console.log(`ENTIRE: ${entirePage} CLIENT: ${clientHeight} CURRENT: ${currentHeight}`);
-
-    //     };
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => {
-    //         window.removeEventListener("scroll", handleScroll);
-    //     };
-    // }, []);
 
     return (
         <Container>
-            <Welcome id="welcome" className={welcomeAnimation}>
+            <Welcome id="welcome" className={"scale-welcome"}>
                 <Donut src={MmDonut}/>
                 <Text>WELCOME 👋</Text>
             </Welcome>
 
-            <Links id="links" className="fade-in-first">
-                {linkInfo.map((link) => {
+            <Links id="links">
+                {links.map((link) => {
 
-                    const {text, color, active} = link
+                    const {text, color} = link
                     return (
 
-                        <DesktopLink href={`#${text}`} hoverColor={color} activeColor={active === true ? color : "white"} >{text}</DesktopLink>
+                        <DesktopLink href={`#${text}`} hoverColor={color}>{text}</DesktopLink>
                     )
                 }
-                    
                 )}
             </Links>
         </Container>
@@ -119,6 +81,8 @@ const Container = styled.div`
 const Welcome = styled.div`
     display: flex;
     align-items: center;
+    -webkit-animation: scale-welcome 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: scale-welcome 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 `
 
 const Links = styled.div`
@@ -126,14 +90,13 @@ const Links = styled.div`
     align-items: center;
     -webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
+    
 `
 
 const DesktopLink = styled.a`
     align-self: center;
     text-decoration: none;
-    /* color: white; */
-    color: ${(props) => props.activeColor};
+    color: white;
     padding: 1rem 2.5rem 0 2.5rem;
     transition: transform 0.2s;
     cursor: pointer;
@@ -149,11 +112,9 @@ const Text = styled.h1`
     align-self: center;
     font-weight: lighter;
     margin: 3vh 1rem 0 1rem;
-
-    /* border: 2px solid fuchsia; */
 `
 
 const Donut = styled.img`
-  height: 4rem;
-  padding-top: 3vh;
+    height: 4rem;
+    padding-top: 3vh;
 `;
