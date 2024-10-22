@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import MmDonut from "./assets/mm_donut.PNG"
 import { useEffect } from "react";
+import MmDonut from "../assets/mm_donut.PNG";
 
 const NavDesktop = () => {
     const links = [

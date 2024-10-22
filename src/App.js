@@ -1,6 +1,6 @@
-import Nav from "./Nav";
-import Home from "./Home";
-import Contact from "./Contact";
+import Nav from "../src/components/Nav";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 
 function App() {
 

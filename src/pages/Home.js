@@ -1,11 +1,12 @@
-import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
+import styled from "styled-components";
 
 import { HiArrowLongDown } from "react-icons/hi2";
 
-import FluffyDonutsFullLogo from "./assets/FluffyDonutsFullLogo.png";
-import FluffyDonutsName from "./assets/FluffyDonutsTitle.png";
-import igIcon from "./assets/igIcon.png";
+import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
+// import FluffyDonutsFullLogo from "./assets/FluffyDonutsFullLogo.png";
+import FluffyDonutsName from "../assets/fd_title.png";
+import igIcon from "../assets/igIcon.png";
 
 
 const Home = () => {
