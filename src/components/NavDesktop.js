@@ -54,7 +54,7 @@ const NavDesktop = () => {
                     const {text, color} = link
                     return (
 
-                        <DesktopLink href={`#${text}`} hoverColor={color}>{text}</DesktopLink>
+                        <DesktopLink key={`link-${text}`} href={`#${text}`} hoverColor={color}>{text}</DesktopLink>
                     )
                 }
                 )}

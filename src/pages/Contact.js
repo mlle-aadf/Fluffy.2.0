@@ -2,7 +2,6 @@ import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
 import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
-// import FluffyDonutsFullLogo from "../src/assets/FluffyDonutsFullLogo.png";
 import igIcon from "../assets/igIcon.png";
 
 const Contact = () => {
