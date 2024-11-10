@@ -28,7 +28,7 @@ const About = () => {
             animate={{ y: 0 }}
             exit={{ y: '-100vh' }}
             transition={{ duration: 1 }}
-            bgImage={ isMobile ? slides[currentSlide].mobileImage : slides[currentSlide].image }
+            bgimage={ isMobile ? slides[currentSlide].mobileImage : slides[currentSlide].image }
             width={isMobile ? "100%" : "70vw"}
             left={isMobile ? "0" : "15vw"}
           >
@@ -56,7 +56,7 @@ const Slide = styled(motion.div)`
     width: ${(props) => props.width};
     margin: 0 auto;
     height: 100vh;
-    background-image: url(${(props) => props.bgImage});
+    background-image: url(${(props) => props.bgimage});
     background-size: cover;
     left: ${(props) => props.left};
     display: flex;

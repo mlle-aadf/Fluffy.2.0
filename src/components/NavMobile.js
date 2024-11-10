@@ -46,6 +46,7 @@ const NavMobile = () => {
 
                     return (
                         <LinkText
+                            key={`navLink-${link}`}    
                             href={href}
                             onClick={() => toggleLanguageHandler(isLanguageLink)}
                         >
