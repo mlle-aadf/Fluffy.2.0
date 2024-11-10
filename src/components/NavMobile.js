@@ -1,26 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoCloseOutline, IoMenu } from "react-icons/io5";
 import styled from "styled-components";
 
+import LanguageContext from "./LanguageContext";
+
 const NavMobile = () => {
-    const links = [
-        {
-            text: "HOME",
-            color: "#FFF",
-        },
-        {
-            text: "ABOUT",
-            color: "#FFF",
-        },
-        {
-            text: "CONTACT",
-            color: "#FFF",
-        },
-        {
-            text: "FR",
-            color: "#FFF",
-        },
-    ];
+
+    const { language, texts, toggleLanguage } = useContext(LanguageContext)
+    const {nav} = texts[language] 
 
     const [expanded, setExpanded] = useState(false);
 
@@ -42,20 +29,30 @@ const NavMobile = () => {
         };
     }, []);
 
+    const toggleLanguageHandler = (isLanguageLink) => {
+        setExpanded(!expanded)
+        return isLanguageLink=== true ? toggleLanguage() : null
+    }
+
     return (
         <>
             <MenuIcon id="mobileNav" onClick={() => setExpanded(!expanded)} />
             <Container style={{ display: `${expanded === false ? "none" : "flex"}` }}>
                 <CloseIcon onClick={() => setExpanded(!expanded)} />
 
-                {links.map((link) => (
-                    <LinkText
-                        href={`#${link.text}`}
-                        onClick={() => setExpanded(!expanded)}
-                    >
-                        {link.text}
-                    </LinkText>
-                ))}
+                {nav.map((link, i) => {
+                    const href = `#section-${i}`
+                    const isLanguageLink = i === 3
+
+                    return (
+                        <LinkText
+                            href={href}
+                            onClick={() => toggleLanguageHandler(isLanguageLink)}
+                        >
+                            {link}
+                        </LinkText>
+                    )
+                })}
             </Container>
         </>
     );
@@ -76,8 +73,7 @@ const MenuIcon = styled(IoMenu)`
 const Container = styled.div`
     flex-direction: column;
     align-items: end;
-    background-color: var(--lightPink);
-    color: var(--darkPink);
+    background-color: rgba(0,0,0, 0.8);
     width: 60%;
     height: 100vh;
     position: fixed;
@@ -91,7 +87,7 @@ const LinkText = styled.a`
     font-size: 1.75rem;
     font-weight: 100;
     margin: 1.5rem 0;
-    color: var(--darkPink);
+    color: var(--lightPink);
 `;
 
 const CloseIcon = styled(IoCloseOutline)`
