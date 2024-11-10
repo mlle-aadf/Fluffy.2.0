@@ -1,33 +1,39 @@
+import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
 import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
 import igIcon from "../assets/igIcon.png";
 
-const Contact = () => {
+import LanguageContext from "../components/LanguageContext";
+
+const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR ***
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const { language, texts } = useContext(LanguageContext)
+  const {contact} = texts[language]
+
 
   return (
     <>
       <FlexContainer fontSize={isMobile ? "1.25rem" : "30px"}>
         <div>
-          <SpanDiv>
-            <ColoredSpan color="#BEEBD6">HOURS: </ColoredSpan>
+          <SpanDiv> 
+            <ColoredSpan color="#BEEBD6">{contact[0]}: </ColoredSpan>
             {isMobile && <br />}
             <ColoredSpan>L à D, 8h à 17h</ColoredSpan>
           </SpanDiv>
           <SpanDiv>
-            <ColoredSpan color="#FDE9DE">ADDRESS: </ColoredSpan>
+            <ColoredSpan color="#FDE9DE">{contact[1]}: </ColoredSpan>
             {isMobile && <br />}
             <ColoredSpan>123 PLACEHOLDER STREET</ColoredSpan>
           </SpanDiv>
           <SpanDiv>
-            <ColoredSpan color="#DA8694">EMAIL: </ColoredSpan>
+            <ColoredSpan color="#DA8694">{contact[2]}: </ColoredSpan>
             {isMobile && <br />}
             <ColoredSpan>FLUFFYDONUTS@GMAIL.COM</ColoredSpan>
           </SpanDiv>
           <SpanDiv>
-            <ColoredSpan color="#80CBB3">PHONE: </ColoredSpan>
+            <ColoredSpan color="#80CBB3">{contact[3]}: </ColoredSpan>
             {isMobile && <br />}
             <ColoredSpan>514-514-5514</ColoredSpan>
           </SpanDiv>
@@ -42,11 +48,11 @@ const Contact = () => {
           </IgDiv>
         </div>
 
-        {!isMobile && (
+        {!isMobile && 
           <div>
             <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
           </div>
-        )}
+        }
       </FlexContainer>
     </>
   );
