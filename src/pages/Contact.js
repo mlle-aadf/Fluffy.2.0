@@ -12,6 +12,10 @@ const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR 
   const { language, texts } = useContext(LanguageContext)
   const {contact} = texts[language]
 
+// update contact info:
+// 4847 rue Wellington St, Montreal, QC H4G 1X5
+// customerservice@fluffys.ca
+// 6047251449
 
   return (
     <>
@@ -25,17 +29,17 @@ const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR 
           <SpanDiv>
             <ColoredSpan color="#FDE9DE">{contact[1]}: </ColoredSpan>
             {isMobile && <br />}
-            <ColoredSpan>123 PLACEHOLDER STREET</ColoredSpan>
+            <ColoredSpan>4847 WELLINGTON</ColoredSpan>
           </SpanDiv>
           <SpanDiv>
             <ColoredSpan color="#DA8694">{contact[2]}: </ColoredSpan>
             {isMobile && <br />}
-            <ColoredSpan>FLUFFYDONUTS@GMAIL.COM</ColoredSpan>
+            <ColoredSpan>CUSTOMERSERVICE@FLUFFYS.CA</ColoredSpan>
           </SpanDiv>
           <SpanDiv>
             <ColoredSpan color="#80CBB3">{contact[3]}: </ColoredSpan>
             {isMobile && <br />}
-            <ColoredSpan>514-514-5514</ColoredSpan>
+            <ColoredSpan>604 725-1449</ColoredSpan>
           </SpanDiv>
 
           <IgDiv justify={isMobile && "center"} top={isMobile && "64px"}>
