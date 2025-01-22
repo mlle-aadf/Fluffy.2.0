@@ -8,18 +8,17 @@ import igIcon from "../assets/igIcon.png";
 import { colors } from "../assets/data";
 import LanguageContext from "../components/LanguageContext";
 
-const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR ***
+const Contact = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const { language, texts } = useContext(LanguageContext)
   const {contact} = texts[language]
-
   const contactDetails = Object.entries(contact)
   
   return (
     <>
       <FlexContainer fontSize={isMobile ? "1.25rem" : "30px"}>
         
-        <ContactDetails>
+        <ContactDetails padding={isMobile ? "0" : "30px"}>
           
           {contactDetails.map((detail, i) => {
             const [key, value] = detail
@@ -27,9 +26,9 @@ const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR 
             return (
             <div key={key} >
               <ContactDetail color={colors[i]}>
-                  {label}: <a href={href} target="blank">{text}</a>
-                </ContactDetail>
-                <br />  
+                  {label}:{isMobile && <br/>} <a href={href} target="blank">{text}</a>
+              </ContactDetail>
+              <br />  
             </div>
             )
           })}
@@ -38,7 +37,7 @@ const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR 
               href="https://www.instagram.com/fluffydonutsmtl/"
               target="blank"
             >
-              <img src={igIcon} alt="igIcon" height={isMobile ? "40px" : undefined} /> {/* Conditionally set height */}
+              <img src={igIcon} alt="igIcon" height={isMobile ? "40px" : undefined} />
             </IgLink>
           </IgDiv>
         </ContactDetails>
@@ -59,23 +58,24 @@ const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100vh;
-  font-size: ${(props) => props.fontSize};
+  font-size: ${({fontSize}) => fontSize};
 `;
 
 const ContactDetails = styled.ul`
   margin-bottom: 30px;
   list-style: none;
+  padding-left: ${({padding}) => padding};
 `;
 
 const ContactDetail = styled.li` 
-  color: ${(props) => props.color};
+  color: ${({color}) => color};
 
   a {
     color: white;
     text-decoration: none;
 
     &:active {
-      color: ${(props) => props.color};
+      color: ${({color}) => color};
     }
     &:hover {
       font-style: italic;
@@ -85,9 +85,8 @@ const ContactDetail = styled.li`
 
 const IgDiv = styled.div`
   display: flex;
-  justify-content: ${(props) => props.justify};
-  margin-top: ${(props) => props.top};
-
+  justify-content: ${({justify}) => justify};
+  margin-top: ${({top}) => top};
 `;
 
 const IgLink = styled.a`
@@ -105,7 +104,6 @@ const IgLink = styled.a`
 
 const FluffyLogo = styled.img`
   width: 500px;
-
   transition: transform 0.3s;
 
   &:hover {
