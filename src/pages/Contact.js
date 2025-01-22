@@ -5,52 +5,43 @@ import styled from "styled-components";
 import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
 import igIcon from "../assets/igIcon.png";
 
+import { colors } from "../assets/data";
 import LanguageContext from "../components/LanguageContext";
 
-const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR ***
+const Contact = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const { language, texts } = useContext(LanguageContext)
   const {contact} = texts[language]
-
-// update contact info:
-// 4847 rue Wellington St, Montreal, QC H4G 1X5
-// customerservice@fluffys.ca
-// 6047251449
-
+  const contactDetails = Object.entries(contact)
+  
   return (
     <>
       <FlexContainer fontSize={isMobile ? "1.25rem" : "30px"}>
-        <div>
-          <SpanDiv> 
-            <ColoredSpan color="#BEEBD6">{contact[0]}: </ColoredSpan>
-            {isMobile && <br />}
-            <ColoredSpan>L à D, 8h à 17h</ColoredSpan>
-          </SpanDiv>
-          <SpanDiv>
-            <ColoredSpan color="#FDE9DE">{contact[1]}: </ColoredSpan>
-            {isMobile && <br />}
-            <ColoredSpan>4847 WELLINGTON</ColoredSpan>
-          </SpanDiv>
-          <SpanDiv>
-            <ColoredSpan color="#DA8694">{contact[2]}: </ColoredSpan>
-            {isMobile && <br />}
-            <ColoredSpan>CUSTOMERSERVICE@FLUFFYS.CA</ColoredSpan>
-          </SpanDiv>
-          <SpanDiv>
-            <ColoredSpan color="#80CBB3">{contact[3]}: </ColoredSpan>
-            {isMobile && <br />}
-            <ColoredSpan>604 725-1449</ColoredSpan>
-          </SpanDiv>
-
-          <IgDiv justify={isMobile && "center"} top={isMobile && "64px"}>
+        
+        <ContactDetails padding={isMobile ? "0" : "30px"}>
+          
+          {contactDetails.map((detail, i) => {
+            const [key, value] = detail
+            const {label, text, href} = value
+            return (
+            <div key={key} >
+              <ContactDetail color={colors[i]}>
+                  {label}:{isMobile && <br/>} <a href={href} target="blank">{text}</a>
+              </ContactDetail>
+              <br />  
+            </div>
+            )
+          })}
+          <IgDiv justify={isMobile ? "center" : undefined} top={isMobile ? "64px" : undefined}>
             <IgLink
               href="https://www.instagram.com/fluffydonutsmtl/"
               target="blank"
             >
-              <img src={igIcon} alt="igIcon" height={isMobile && "40px"} />
+              <img src={igIcon} alt="igIcon" height={isMobile ? "40px" : undefined} />
             </IgLink>
           </IgDiv>
-        </div>
+        </ContactDetails>
+
 
         {!isMobile && 
           <div>
@@ -67,21 +58,35 @@ const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100vh;
-  font-size: ${(props) => props.fontSize};
+  font-size: ${({fontSize}) => fontSize};
 `;
 
-const ColoredSpan = styled.span`
-  color: ${(props) => props.color};
-`;
-
-const SpanDiv = styled.div`
+const ContactDetails = styled.ul`
   margin-bottom: 30px;
+  list-style: none;
+  padding-left: ${({padding}) => padding};
 `;
+
+const ContactDetail = styled.li` 
+  color: ${({color}) => color};
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:active {
+      color: ${({color}) => color};
+    }
+    &:hover {
+      font-style: italic;
+    }
+  }
+`
 
 const IgDiv = styled.div`
   display: flex;
-  justify-content: ${(props) => props.justify};
-  margin-top: ${(props) => props.top};
+  justify-content: ${({justify}) => justify};
+  margin-top: ${({top}) => top};
 `;
 
 const IgLink = styled.a`
@@ -99,7 +104,6 @@ const IgLink = styled.a`
 
 const FluffyLogo = styled.img`
   width: 500px;
-
   transition: transform 0.3s;
 
   &:hover {

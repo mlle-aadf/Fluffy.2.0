@@ -14,7 +14,7 @@ const About = () => {
     useEffect(() => {
       const interval = setInterval(() => {
         setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-      }, 7000); // Change slides every 5 seconds
+      }, 7000); // Change slides every 7 seconds
   
       return () => clearInterval(interval);
     }, []);
@@ -27,14 +27,15 @@ const About = () => {
             initial={{ y: '100vh' }}
             animate={{ y: 0 }}
             exit={{ y: '-100vh' }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 2 }}
             bgimage={ isMobile ? slides[currentSlide].mobileImage : slides[currentSlide].image }
             width={isMobile ? "100%" : "70vw"}
             left={isMobile ? "0" : "15vw"}
+            aria-label={slides[currentSlide].altText}
           >
             <Overlay />
-            <TextContainer width={isMobile ? "90%" : "55vw"}>
-              <Text fontSize={isMobile ? "2rem" : "3rem"}>{slides[currentSlide][language]}</Text>
+            <TextContainer width={isMobile ? "90%" : "55vw"} top={isMobile ? "20%" : "30%"}>
+              <Text fontSize={isMobile ? "2rem" : "2.75rem"} line={isMobile ? "1.75" : "1.25"}>{slides[currentSlide][language]}</Text>
             </TextContainer>
           </Slide>
         </AnimatePresence>
@@ -53,12 +54,12 @@ const SectionContainer = styled.div`
 const Slide = styled(motion.div)`
     position: absolute;
     top: 0;
-    width: ${(props) => props.width};
+    width: ${({width}) => width};
     margin: 0 auto;
     height: 100vh;
-    background-image: url(${(props) => props.bgimage});
+    background-image: url(${({bgimage}) => bgimage});
     background-size: cover;
-    left: ${(props) => props.left};
+    left: ${({left}) => left};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,18 +80,23 @@ const Overlay = styled.div` /* 50% shadow overlay */
 const TextContainer = styled.div`
     position: absolute;
     z-index: 2;
-    top: 25%;
+    top: ${({top}) => top};
     display: flex;
-    width: ${(props) => props.width};
+    width: ${({width}) => width};
     align-items: center;
+    /* justify-content: center; */
+
+    /* border: 1px solid aqua; */
     justify-content: space-around;
 `;
 
 const Text = styled.h2`
     color: white;
-    font-size: ${(props) => props.fontSize};
+    opacity: 0.75;
+    font-size: ${({fontSize}) => fontSize};
     font-weight: 500;
     max-width: 80%;
+    line-height: ${({line}) => line};
 `;
 
 export default About;
