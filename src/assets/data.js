@@ -13,10 +13,10 @@ const texts = {
         tagline: "COFFEE + DONUTS. PLANT-BASED. GOOD VIBES.",
         nav: ["HOME", "ABOUT", "CONTACT", "FR"],
         contact: {
-            hours: {label: "HOURS", text: "M to S, 8 - 5"},
+            hours: {label: "HOURS", text: "M to S, 7 - 5"},
             address: {label: "ADDRESS", text: "4847 WELLINGTON ST.", href:"https://maps.app.goo.gl/DKZrqYSEHwRbHkMG9"},
             email: {label: "EMAIL", text: "CUSTOMERSERVICE@FLUFFYS.CA", href:"mailto: customerservice@fluffys.ca"},
-            phone: {label: "PHONE", text: "604 725-1449", href:"tel: 604 725-1449"}
+            phone: {label: "PHONE", text: "514 123-4567", href:"tel: 514 123-4567"}
         }
     },
     fr: {
@@ -24,10 +24,10 @@ const texts = {
         tagline: "CAFÉ + BEIGNES. PLANT-BASED. BONNES VIBES.",
         nav: ["ACCUEIL", "À PROPOS", "CONTACT", "EN"],
         contact: {
-            hours: {label: "HEURES", text: "L à S, 8 - 5"},
+            hours: {label: "HEURES", text: "L à D, 7 - 5"},
             address: {label: "ADRESSE", text: "4847 RUE WELLINGTON", href:"https://maps.app.goo.gl/DKZrqYSEHwRbHkMG9"},
             email: {label: "COURRIEL", text: "CUSTOMERSERVICE@FLUFFYS.CA", href:"mailto: customerservice@fluffys.ca"},
-            phone: {label: "TÉLÉPHONE", text: "604 725-1449", href:"tel: 604 725-1449"}
+            phone: {label: "TÉLÉPHONE", text: "514 123-4567", href:"tel: 514 123-4567"}
         }
     }
 };

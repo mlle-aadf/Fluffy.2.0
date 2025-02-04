@@ -34,7 +34,7 @@ const Contact = () => {
           })}
           <IgDiv justify={isMobile ? "center" : undefined} top={isMobile ? "64px" : undefined}>
             <IgLink
-              href="https://www.instagram.com/fluffydonutsmtl/"
+              href="https://www.instagram.com/fluffysmtl/"
               target="blank"
             >
               <img src={igIcon} alt="igIcon" height={isMobile ? "40px" : undefined} />

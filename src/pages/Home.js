@@ -27,7 +27,7 @@ const Home = () => {
       </Tagline>
       {!isMobile && (
         <IgLink className="scale-fluffy"
-          href="https://www.instagram.com/fluffydonutsmtl/"
+          href="https://www.instagram.com/fluffysmtl/"
           target="blank"
         >
           <img src={igIcon} alt="igIcon" />
