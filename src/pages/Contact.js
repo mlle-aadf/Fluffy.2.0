@@ -15,45 +15,43 @@ const Contact = () => {
   const contactDetails = Object.entries(contact);
 
   return (
-    <>
-      <FlexContainer fontSize={isMobile ? "1.1rem" : "1.75rem"}>
-        <ContactDetails $padding={isMobile ? "0" : "30px"}>
-          {contactDetails.map((detail, i) => {
-            const [key, value] = detail;
-            const { label, text, href } = value;
-            return (
-              <div key={key}>
-                <ContactDetail color={colors[i]}>
-                  {label}:{isMobile && <br />}{" "}
-                  <a href={href} target="blank">
-                    {text}
-                  </a>
-                </ContactDetail>
-                <br />
-              </div>
-            );
-          })}
-          <IgDiv
-            $justify={isMobile ? "center" : undefined}
-            $top={isMobile ? "64px" : undefined}
-          >
-            <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
-              <img
-                src={igIcon}
-                alt="igIcon"
-                height={isMobile ? "40px" : undefined}
-              />
-            </IgLink>
-          </IgDiv>
-        </ContactDetails>
+    <FlexContainer fontSize={isMobile ? "1.1rem" : "1.75rem"}>
+      <ContactDetails $padding={isMobile ? "0" : "30px"}>
+        {contactDetails.map((detail, i) => {
+          const [key, value] = detail;
+          const { label, text, href } = value;
+          return (
+            <>
+              <ContactDetail color={colors[i]} key={key}>
+                {label}:{isMobile && <br />}{" "}
+                <a href={href} target="blank">
+                  {text}
+                </a>
+              </ContactDetail>
+              <br />
+            </>
+          );
+        })}
+        <IgDiv
+          $justify={isMobile ? "center" : undefined}
+          $top={isMobile ? "64px" : undefined}
+        >
+          <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
+            <img
+              src={igIcon}
+              alt="igIcon"
+              height={isMobile ? "40px" : undefined}
+            />
+          </IgLink>
+        </IgDiv>
+      </ContactDetails>
 
-        {!isMobile && (
-          <div>
-            <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
-          </div>
-        )}
-      </FlexContainer>
-    </>
+      {!isMobile && (
+        <div>
+          <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
+        </div>
+      )}
+    </FlexContainer>
   );
 };
 

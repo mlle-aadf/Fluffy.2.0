@@ -64,15 +64,10 @@ const Slide = styled(motion.div)`
   left: ${({ left }) => left};
   width: ${({ width }) => width};
   height: 100vh;
-  /* margin: 0 auto; */
   background-image: url(${({ bgimage }) => bgimage});
   background-size: cover;
-  /* background-position: center; */
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* border-radius: 15px; */
-  /* overflow: hidden; */
 `;
 
 const Overlay = styled.div`
