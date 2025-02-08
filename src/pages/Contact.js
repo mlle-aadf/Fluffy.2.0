@@ -21,15 +21,13 @@ const Contact = () => {
           const [key, value] = detail;
           const { label, text, href } = value;
           return (
-            <>
-              <ContactDetail color={colors[i]} key={key}>
-                {label}:{isMobile && <br />}{" "}
-                <a href={href} target="blank">
-                  {text}
-                </a>
-              </ContactDetail>
+            <ContactDetail color={colors[i]} key={key}>
+              {label}:{isMobile && <br />}{" "}
+              <a href={href} target="blank">
+                {text}
+              </a>
               <br />
-            </>
+            </ContactDetail>
           );
         })}
         <IgDiv

@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <Container>
 
-      <FluffyLogo id="homeLogo" className="scale-fluffy" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
+      <FluffyLogo id="homeLogo" className="scale-fluffy" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} alt="fluffy's logo"/>
       <Tagline
         width={isMobile ? "55%" : "auto"}>
         {tagline}
