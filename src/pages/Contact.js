@@ -22,11 +22,10 @@ const Contact = () => {
           const { label, text, href } = value;
           return (
             <ContactDetail color={colors[i]} key={key}>
-              {label}:{isMobile && <br />}{" "}
+              <span>{label}:</span><br/>
               <a href={href} target="blank">
                 {text}
               </a>
-              <br />
             </ContactDetail>
           );
         })}
@@ -39,6 +38,7 @@ const Contact = () => {
               src={igIcon}
               alt="igIcon"
               height={isMobile ? "40px" : undefined}
+              loading="lazy"
             />
           </IgLink>
         </IgDiv>
@@ -46,7 +46,11 @@ const Contact = () => {
 
       {!isMobile && (
         <div>
-          <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
+          <FluffyLogo
+            src={FluffyDonutsFullLogo}
+            alt="FluffyDonutsLogo"
+            loading="lazy"
+          />
         </div>
       )}
     </FlexContainer>
@@ -69,6 +73,7 @@ const ContactDetails = styled.ul`
 
 const ContactDetail = styled.li`
   color: ${({ color }) => color};
+  padding-bottom: 1.75rem;
 
   a {
     color: white;

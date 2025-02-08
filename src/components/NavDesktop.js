@@ -23,7 +23,7 @@ const NavDesktop = () => {
   return (
     <Container>
       <Welcome id="welcome" className={"scale-welcome"}>
-        <Donut src={MmDonut} alt="donut" />
+        <Donut src={MmDonut} alt="donut" loading="lazy"/>
         <Text>{greeting} 👋</Text>
       </Welcome>
 

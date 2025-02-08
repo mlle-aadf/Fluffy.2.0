@@ -1,36 +1,37 @@
 import { useContext } from "react";
+import { HiArrowLongDown } from "react-icons/hi2";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
-import LanguageContext from "../components/LanguageContext";
-
-
-import { HiArrowLongDown } from "react-icons/hi2";
 
 import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
 import FluffyDonutsName from "../assets/fd_title.png";
 import igIcon from "../assets/igIcon.png";
-
+import LanguageContext from "../components/LanguageContext";
 
 const Home = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const { language, texts } = useContext(LanguageContext)
-  
-  const {tagline} = texts[language] 
+  const { language, texts } = useContext(LanguageContext);
+
+  const { tagline } = texts[language];
 
   return (
     <Container>
-
-      <FluffyLogo id="homeLogo" className="scale-fluffy" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} alt="fluffy's logo"/>
-      <Tagline
-        width={isMobile ? "55%" : "auto"}>
-        {tagline}
-      </Tagline>
+      <FluffyLogo
+        id="homeLogo"
+        className="scale-fluffy"
+        src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName}
+        alt="fluffy's logo"
+        loading="lazy"
+      />
+      <Tagline width={isMobile ? "55%" : "auto"}>{tagline}</Tagline>
       {!isMobile && (
-        <IgLink className="scale-fluffy"
+        <IgLink
+          className="scale-fluffy"
           href="https://www.instagram.com/fluffysmtl/"
           target="blank"
+          aria-label="Instagram"
         >
-          <img src={igIcon} alt="igIcon" />
+          <img src={igIcon} alt="Instagram Icon" loading="lazy"/>
         </IgLink>
       )}
 
@@ -57,8 +58,9 @@ const FluffyLogo = styled.img`
   max-width: 70vw;
   margin-top: 8vh;
 
-  animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
-  -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+  animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s both;
+  -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.5s both;
 `;
 
 const Tagline = styled.p`
@@ -67,20 +69,29 @@ const Tagline = styled.p`
   text-align: center;
   margin: 1em 0;
   letter-spacing: 0.1rem;
-// color-gradient backround animation
-  background: linear-gradient(270deg, var(--lightPink), var(--lightGreen), white);
+  // color-gradient backround animation
+  background: linear-gradient(
+    270deg,
+    var(--lightPink),
+    var(--lightGreen),
+    white
+  );
   background-size: 1000% 1000%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: bg-color 3s ease 1.5s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s 1 both;
-  -webkit-animation: bg-color 3s ease 1.5s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s 1 both;
-  -moz-animation: bg-color 3s ease 1.5s 1, fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s 1 both;
+  animation: bg-color 3s ease 1.5s 1,
+    fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
+  -webkit-animation: bg-color 3s ease 1.5s 1,
+    fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
+  -moz-animation: bg-color 3s ease 1.5s 1,
+    fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
 `;
 
 const IgLink = styled.a`
-  animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s 1 both;
-  -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s 1 both;
+  animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s 1 both;
+  -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.5s 1 both;
   cursor: pointer;
 
   img {
@@ -93,13 +104,12 @@ const IgLink = styled.a`
   }
 `;
 
-
 const Arrow = styled(HiArrowLongDown)`
   align-self: ${(props) => props.align};
   padding-right: ${(props) => props.padding};
   font-size: 1.5rem;
 
   -webkit-animation: fade-in 3s linear 3s both;
-  -moz-animation:fade-in 3s linear 3s both;
+  -moz-animation: fade-in 3s linear 3s both;
   animation: fade-in 3s linear 3s both;
 `;
