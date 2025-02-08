@@ -1,6 +1,6 @@
-import styled from "styled-components";
-
 import { useContext, useEffect } from "react";
+import { Link } from "react-scroll";
+import styled from "styled-components";
 import { colors } from "../assets/data";
 import MmDonut from "../assets/mm_donut.PNG";
 import LanguageContext from "./LanguageContext";
@@ -23,7 +23,7 @@ const NavDesktop = () => {
   return (
     <Container>
       <Welcome id="welcome" className={"scale-welcome"}>
-        <Donut src={MmDonut} />
+        <Donut src={MmDonut} alt="donut" />
         <Text>{greeting} 👋</Text>
       </Welcome>
 
@@ -33,7 +33,7 @@ const NavDesktop = () => {
             key={`navLink-${link}`}
             link={link}
             color={colors[i]}
-            href={`#section-${i}`}
+            to={`section-${i}`}
             isLanguageLink={i === 3}
             toggleLanguage={toggleLanguage}
           />
@@ -43,15 +43,33 @@ const NavDesktop = () => {
   );
 };
 
-const DesktopLinkItem = ({ link, color, href, isLanguageLink, toggleLanguage }) => (
+const DesktopLinkItem = ({
+  link,
+  color,
+  to,
+  isLanguageLink,
+  toggleLanguage,
+}) => (
   <DesktopLink hoverColor={color}>
-    <a href={href} onClick={isLanguageLink ? toggleLanguage : null}>
+    <Link
+      to={to}
+      smooth={true}
+      duration={500}
+      onClick={isLanguageLink ? toggleLanguage : null}
+    >
       {link}
-    </a>
+    </Link>
   </DesktopLink>
 );
 
 export default NavDesktop;
+
+const Welcome = styled.div`
+  display: flex;
+  align-items: center;
+  -webkit-animation: scale-welcome 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: scale-welcome 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -59,7 +77,7 @@ const Container = styled.div`
   margin-bottom: -16vh;
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: fixed;
   top: 0%;
   background: linear-gradient(
     180deg,
@@ -73,13 +91,6 @@ const Container = styled.div`
   );
   letter-spacing: 0.2rem;
   z-index: 9;
-`;
-
-const Welcome = styled.div`
-  display: flex;
-  align-items: center;
-  -webkit-animation: scale-welcome 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  animation: scale-welcome 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 `;
 
 const Links = styled.ul`

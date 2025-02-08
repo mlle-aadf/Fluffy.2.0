@@ -10,44 +10,48 @@ import LanguageContext from "../components/LanguageContext";
 
 const Contact = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const { language, texts } = useContext(LanguageContext)
-  const {contact} = texts[language]
-  const contactDetails = Object.entries(contact)
-  
+  const { language, texts } = useContext(LanguageContext);
+  const { contact } = texts[language];
+  const contactDetails = Object.entries(contact);
+
   return (
     <>
-      <FlexContainer fontSize={isMobile ? "1.25rem" : "30px"}>
-        
-        <ContactDetails padding={isMobile ? "0" : "30px"}>
-          
+      <FlexContainer fontSize={isMobile ? "1.1rem" : "1.75rem"}>
+        <ContactDetails $padding={isMobile ? "0" : "30px"}>
           {contactDetails.map((detail, i) => {
-            const [key, value] = detail
-            const {label, text, href} = value
+            const [key, value] = detail;
+            const { label, text, href } = value;
             return (
-            <div key={key} >
-              <ContactDetail color={colors[i]}>
-                  {label}:{isMobile && <br/>} <a href={href} target="blank">{text}</a>
-              </ContactDetail>
-              <br />  
-            </div>
-            )
+              <div key={key}>
+                <ContactDetail color={colors[i]}>
+                  {label}:{isMobile && <br />}{" "}
+                  <a href={href} target="blank">
+                    {text}
+                  </a>
+                </ContactDetail>
+                <br />
+              </div>
+            );
           })}
-          <IgDiv justify={isMobile ? "center" : undefined} top={isMobile ? "64px" : undefined}>
-            <IgLink
-              href="https://www.instagram.com/fluffysmtl/"
-              target="blank"
-            >
-              <img src={igIcon} alt="igIcon" height={isMobile ? "40px" : undefined} />
+          <IgDiv
+            $justify={isMobile ? "center" : undefined}
+            $top={isMobile ? "64px" : undefined}
+          >
+            <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
+              <img
+                src={igIcon}
+                alt="igIcon"
+                height={isMobile ? "40px" : undefined}
+              />
             </IgLink>
           </IgDiv>
         </ContactDetails>
 
-
-        {!isMobile && 
+        {!isMobile && (
           <div>
             <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
           </div>
-        }
+        )}
       </FlexContainer>
     </>
   );
@@ -58,35 +62,35 @@ const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100vh;
-  font-size: ${({fontSize}) => fontSize};
+  font-size: ${({ fontSize }) => fontSize};
 `;
 
 const ContactDetails = styled.ul`
   margin-bottom: 30px;
   list-style: none;
-  padding-left: ${({padding}) => padding};
+  padding: ${({ $padding }) => $padding};
 `;
 
-const ContactDetail = styled.li` 
-  color: ${({color}) => color};
+const ContactDetail = styled.li`
+  color: ${({ color }) => color};
 
   a {
     color: white;
     text-decoration: none;
 
     &:active {
-      color: ${({color}) => color};
+      color: ${({ color }) => color};
     }
     &:hover {
       font-style: italic;
     }
   }
-`
+`;
 
 const IgDiv = styled.div`
   display: flex;
-  justify-content: ${({justify}) => justify};
-  margin-top: ${({top}) => top};
+  justify-content: ${({ $justify }) => $justify};
+  margin-top: ${({ $top }) => $top};
 `;
 
 const IgLink = styled.a`

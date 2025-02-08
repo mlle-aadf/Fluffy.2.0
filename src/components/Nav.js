@@ -1,21 +1,12 @@
 import { useMediaQuery } from "react-responsive";
 
-import NavMobile from "./NavMobile";
-// import NavMobile from "../components/NavMobile";
 import NavDesktop from "./NavDesktop";
+import NavMobile from "./NavMobile";
 
 const Nav = () => {
-  
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-
-const isMobile = useMediaQuery({ maxWidth: 767 });
-
-  return (
-    <>
-      {isMobile ? <NavMobile/> : <NavDesktop/>}
-    </>
-
-  );
+  return <>{isMobile ? <NavMobile /> : <NavDesktop />}</>;
 };
 
 export default Nav;

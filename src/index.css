@@ -4,8 +4,6 @@ html {
 
 body {
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', */
-  /* 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', */
   font-family: "Inter", sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -19,11 +17,25 @@ body {
   --darkPink: #DA8694;
   --lightGreen: #BEEBD6;
   --darkGreen: #80CBB3;
+
+  --section-height: 100vh;
+  --section-min-height: 400px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+section {
+  min-height: var(--section-min-height);
+  height: auto;
+}
+
+@media (min-height: 600px) {
+  section {
+    height: var(--section-height);
+  }
 }
 
 

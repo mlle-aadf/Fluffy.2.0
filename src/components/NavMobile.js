@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { IoCloseOutline, IoMenu } from "react-icons/io5";
+import { Link } from "react-scroll";
 import styled from "styled-components";
 
+import { colors } from "../assets/data";
 import LanguageContext from "./LanguageContext";
 
 const NavMobile = () => {
@@ -41,17 +43,15 @@ const NavMobile = () => {
                 <CloseIcon onClick={() => setExpanded(!expanded)} />
 
                 {nav.map((link, i) => {
-                    const href = `#section-${i}`
+    
                     const isLanguageLink = i === 3
 
                     return (
-                        <LinkText
-                            key={`navLink-${link}`}    
-                            href={href}
-                            onClick={() => toggleLanguageHandler(isLanguageLink)}
-                        >
-                            {link}
-                        </LinkText>
+                        <MobileLink key={`navLink-${link}`} color={colors[i]}>
+                            <Link   
+                            to={`section-${i}`}
+                            onClick={() => toggleLanguageHandler(isLanguageLink)}>{link}</Link>
+                        </MobileLink>
                     )
                 })}
             </Container>
@@ -69,7 +69,7 @@ const MenuIcon = styled(IoMenu)`
     right: 1.5rem;
     display: block;
     z-index: 2;
-    `;
+`;
 
 const Container = styled.div`
     flex-direction: column;
@@ -83,16 +83,17 @@ const Container = styled.div`
     z-index: 3;
 `;
 
-const LinkText = styled.a`
+const MobileLink = styled.li`
+    list-style-type: none;
     text-decoration: none;
     font-size: 1.75rem;
     font-weight: 100;
     margin: 1.5rem 0;
-    color: var(--lightPink);
+    color: ${({color}) => color};
 `;
 
 const CloseIcon = styled(IoCloseOutline)`
     font-size: 2.5rem;
     margin-top: 2rem;
-    color: var(--darkGreen);
+    color: white;
 `;

@@ -27,7 +27,7 @@ const texts = {
             hours: {label: "HEURES", text: "L à D, 7 - 5"},
             address: {label: "ADRESSE", text: "4847 RUE WELLINGTON", href:"https://maps.app.goo.gl/DKZrqYSEHwRbHkMG9"},
             email: {label: "COURRIEL", text: "CUSTOMERSERVICE@FLUFFYS.CA", href:"mailto: customerservice@fluffys.ca"},
-            phone: {label: "TÉLÉPHONE", text: "514 123-4567", href:"tel: 514 123-4567"}
+            phone: {label: "TÉLÉPHONE", text: "514 123 4567", href:"tel: 514 123-4567"}
         }
     }
 };
