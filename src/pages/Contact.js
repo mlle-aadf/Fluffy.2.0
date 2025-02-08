@@ -16,33 +16,32 @@ const Contact = () => {
 
   return (
     <FlexContainer fontSize={isMobile ? "1.1rem" : "1.75rem"}>
-      <ContactDetails $padding={isMobile ? "0" : "30px"}>
-        {contactDetails.map((detail, i) => {
-          const [key, value] = detail;
-          const { label, text, href } = value;
-          return (
-            <ContactDetail color={colors[i]} key={key}>
-              <span>{label}:</span><br/>
-              <a href={href} target="blank">
-                {text}
-              </a>
-            </ContactDetail>
-          );
-        })}
-        <IgDiv
-          $justify={isMobile ? "center" : undefined}
-          $top={isMobile ? "64px" : undefined}
-        >
-          <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
-            <img
-              src={igIcon}
-              alt="igIcon"
-              height={isMobile ? "40px" : undefined}
-              loading="lazy"
-            />
-          </IgLink>
-        </IgDiv>
-      </ContactDetails>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <ContactDetails $padding={isMobile ? "0" : "30px"}>
+          {contactDetails.map((detail, i) => {
+            const [key, value] = detail;
+            const { label, text, href } = value;
+            return (
+              <ContactDetail color={colors[i]} key={key}>
+                <span>{label}:</span>
+                <br />
+                <a href={href} target="blank">
+                  {text}
+                </a>
+              </ContactDetail>
+            );
+          })}
+        </ContactDetails>
+
+        <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
+          <img
+            src={igIcon}
+            alt="igIcon"
+            height={isMobile ? "40px" : undefined}
+            loading="lazy"
+          />
+        </IgLink>
+      </div>
 
       {!isMobile && (
         <div>
@@ -88,14 +87,9 @@ const ContactDetail = styled.li`
   }
 `;
 
-const IgDiv = styled.div`
-  display: flex;
-  justify-content: ${({ $justify }) => $justify};
-  margin-top: ${({ $top }) => $top};
-`;
-
 const IgLink = styled.a`
   cursor: pointer;
+  align-self: center;
 
   img {
     transition: transform 0.3s;
