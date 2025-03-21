@@ -3,8 +3,8 @@ import { HiArrowLongDown } from "react-icons/hi2";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
-import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
-import FluffyDonutsName from "../assets/fd_title.png";
+import FluffyDonutsFullLogo from "../assets/NEWlogo.png";
+import FluffyDonutsName from "../assets/NEWlogo.png";
 import igIcon from "../assets/igIcon.png";
 import LanguageContext from "../components/LanguageContext";
 
@@ -54,7 +54,7 @@ const Container = styled.div`
 `;
 
 const FluffyLogo = styled.img`
-  width: 65vw;
+  width: 28vw;
   max-width: 70vw;
   margin-top: 8vh;
 
