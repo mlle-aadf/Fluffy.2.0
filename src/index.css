@@ -8,11 +8,16 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  color: white;
+  background-color: var(--background-color);
+  color: var(--primary-color);  
 }
 
 :root {
+  --background-color: rgb(255, 255, 255);
+  --primary-color: rgb(0, 0, 0);
+  --accent-color: rgb(255, 72, 173);
+
+
   --lightPink: #E7D3CA;
   --darkPink: #DA8694;
   --lightGreen: #BEEBD6;
@@ -237,19 +242,15 @@ section {
 }
 
 
-@-moz-keyframes bg-color {
+/* @-moz-keyframes bg-color {
   0% {
-    background-position: 0% 50%,
+    color: var(--background-color);
   }
-
-  50% {
-    background-position: 100% 50%
-  }
-
   100% {
-    background-position: 0% 50%
+    color: var(--primary-color);
   }
-}
+};
+
 @keyframes bg-color {
   0% {
     background-position: 0% 50%
@@ -275,4 +276,4 @@ section {
   100% {
     background-position: 0% 50%
   }
-}
+} */

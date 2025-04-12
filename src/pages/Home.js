@@ -3,8 +3,7 @@ import { HiArrowLongDown } from "react-icons/hi2";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
-import FluffyDonutsFullLogo from "../assets/NEWlogo.png";
-import FluffyDonutsName from "../assets/NEWlogo.png";
+import { default as FluffyDonutsFullLogo, default as FluffyDonutsName } from "../assets/NEWlogo.png";
 import igIcon from "../assets/igIcon.png";
 import LanguageContext from "../components/LanguageContext";
 
@@ -69,23 +68,10 @@ const Tagline = styled.p`
   text-align: center;
   margin: 1em 0;
   letter-spacing: 0.1rem;
-  // color-gradient backround animation
-  background: linear-gradient(
-    270deg,
-    var(--lightPink),
-    var(--lightGreen),
-    white
-  );
-  background-size: 1000% 1000%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: bg-color 3s ease 1.5s 1,
-    fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
-  -webkit-animation: bg-color 3s ease 1.5s 1,
-    fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
-  -moz-animation: bg-color 3s ease 1.5s 1,
-    fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
+  color: var(--primary-color);
+  animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
+  -webkit-animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
+  -moz-animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
 `;
 
 const IgLink = styled.a`
@@ -108,8 +94,7 @@ const Arrow = styled(HiArrowLongDown)`
   align-self: ${(props) => props.align};
   padding-right: ${(props) => props.padding};
   font-size: 1.5rem;
-
-  -webkit-animation: fade-in 3s linear 3s both;
-  -moz-animation: fade-in 3s linear 3s both;
-  animation: fade-in 3s linear 3s both;
+  -webkit-animation: fade-in 1s linear 1s both;
+  -moz-animation: fade-in 1s linear 3s both;
+  animation: fade-in 1s linear 3s both;
 `;
