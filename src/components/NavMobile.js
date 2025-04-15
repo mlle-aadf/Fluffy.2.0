@@ -75,7 +75,11 @@ const NavMobile = () => {
             const isLanguageLink = i === 3;
 
             return (
-              <MobileLink key={`navLink-${link}`} color={colors[i]}>
+              <MobileLink
+                key={`navLink-${link}-${expanded}`}
+                color={colors[i]}
+                delay={i * 0.2}
+              >
                 <Link
                   to={`section-${i}`}
                   onClick={() => toggleLanguageHandler(isLanguageLink)}
@@ -85,7 +89,7 @@ const NavMobile = () => {
               </MobileLink>
             );
           })}
-          <SocialIcons>
+          <SocialIcons delay={nav.length * 0.2}>
             <IgLink
               href="https://www.instagram.com/fluffysmtl/"
               target="blank"
@@ -147,6 +151,21 @@ const MobileLink = styled.li`
   list-style-type: none;
   margin: 1.5rem 0;
   text-decoration: none;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fadeInRight 0.5s ease forwards;
+  animation-delay: ${({ delay }) => delay}s;
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 `;
 
 const CloseIcon = styled(IoCloseOutline)`
@@ -162,6 +181,18 @@ const SocialIcons = styled.div`
   align-items: center;
   gap: 20px;
   margin: 3rem 0 0 auto;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: ${({ delay }) => delay}s;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const IgLink = styled.a`
