@@ -46,20 +46,21 @@ const NavMobile = () => {
                 alt="Menu Icon"
                 onClick={() => setExpanded(!expanded)}
             />
-            <Container style={{ display: `${expanded === false ? "none" : "flex"}` }}>
+            <Container expanded={expanded}>
                 <CloseIcon onClick={() => setExpanded(!expanded)} />
-
                 {nav.map((link, i) => {
-    
-                    const isLanguageLink = i === 3
+                    const isLanguageLink = i === 3;
 
                     return (
                         <MobileLink key={`navLink-${link}`} color={colors[i]}>
-                            <Link   
-                            to={`section-${i}`}
-                            onClick={() => toggleLanguageHandler(isLanguageLink)}>{link}</Link>
+                            <Link
+                                to={`section-${i}`}
+                                onClick={() => toggleLanguageHandler(isLanguageLink)}
+                            >
+                                {link}
+                            </Link>
                         </MobileLink>
-                    )
+                    );
                 })}
             </Container>
         </>
@@ -84,17 +85,23 @@ const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.8);
     flex-direction: column;
     height: 100vh;
+    text-align: end;
     padding-right: 2rem;
     position: fixed;
     right: 0;
     width: 60%;
     z-index: 3;
+    opacity: ${({ expanded }) => (expanded ? 1 : 0)};
+    visibility: ${({ expanded }) => (expanded ? "visible" : "hidden")};
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 `;
 
 const MobileLink = styled.li`
-    color: ${({ color }) => color};
+    color: var(--background-color);
+    font-family: 'Jost', sans-serif;
     font-size: 1.75rem;
-    font-weight: 100;
+    font-weight: 300;
+    letter-spacing: 0.15rem;
     list-style-type: none;
     margin: 1.5rem 0;
     text-decoration: none;
