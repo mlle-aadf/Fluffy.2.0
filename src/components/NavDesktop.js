@@ -81,12 +81,12 @@ const Container = styled.div`
   top: 0%;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 75%,
-    rgba(0, 0, 0, 0.7) 85%,
-    rgba(0, 0, 0, 0.5) 90%,
-    rgba(0, 0, 0, 0.3) 93%,
-    rgba(0, 0, 0, 0.1) 95%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 75%,
+    rgba(255, 255, 255, 0.7) 85%,
+    rgba(255, 255, 255, 0.5) 90%,
+    rgba(255, 255, 255, 0.3) 93%,
+    rgba(255, 255, 255, 0.1) 95%,
     rgba(255, 255, 255, 0) 100%
   );
   letter-spacing: 0.2rem;
@@ -115,15 +115,7 @@ const DesktopLink = styled.li.withConfig({
     transform: scale(1.2);
     transition: transform 0.2s;
   }
-
-  a {
-    &:hover {
-      color: ${({ hoverColor }) => hoverColor};
-    }
-
-    text-decoration: none;
-    color: white;
-  }
+  
 `;
 
 const Text = styled.h1`

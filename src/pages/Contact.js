@@ -72,37 +72,41 @@ const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: fit-content;
+  justify-content: center;
+  min-height: 100vh;
   padding: 20px;
   font-size: ${({ fontSize }) => fontSize};
-
+  
   @media (min-width: 768px) {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
   }
-`;
+  `;
 
 const LeftContainer = styled.div`
   display: none;
-
+  
   @media (min-width: 768px) {
     display: flex;
     flex: 1;
     justify-content: end;
     align-items: center;
   }
-`;
+  `;
 
 const RightContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
+  height: fit-content;
+  justify-content: center;
+
   @media (min-width: 768px) {
-    flex: 1.5;
+    flex: 1.25;
+    align-items: flex-start;
     padding-left: 3rem;
-    margin-top: -50px;
   }
 `;
 
@@ -152,9 +156,11 @@ const IconContainer = styled.div`
   display: flex;
   gap: 15px;
   align-items: center;
+  justify-content: center;
   
   @media (min-width: 768px) {
-    padding-left: 20px;
+    padding-left: 25px;
+    justify-content: flex-start;
   }
 `;
 
