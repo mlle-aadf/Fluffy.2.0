@@ -13,6 +13,7 @@ const Contact = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const { language, texts } = useContext(LanguageContext);
   const { contact } = texts[language];
+  const labels = ["HOURS", "ADDRESS", "EMAIL", "PHONE", "HEURES","ADRESSE","COURRIEL","TÉLÉPHONE"];
   const contactDetails = Object.entries(contact);
 
   return (
@@ -35,7 +36,7 @@ const Contact = () => {
               <ContactDetail
                 color={colors[i]}
                 key={key}
-                isLabel={["HOURS", "ADDRESS", "EMAIL", "PHONE"].includes(label)}
+                isLabel={labels.includes(label)}
               >
                 <span>{label}:</span>
                 <a href={href} target="blank">
