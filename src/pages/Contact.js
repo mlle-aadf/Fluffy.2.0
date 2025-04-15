@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
-import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
+import newLogo from "../assets/NEWlogo.png";
 import igIcon from "../assets/igIcon.png";
 import tiktokIcon from "../assets/tiktokIcon.png"; /* Add TikTok icon to your assets */
 
@@ -44,6 +44,7 @@ const Contact = () => {
               src={igIcon}
               alt="Instagram Icon"
               height={isMobile ? "45px" : undefined}
+              // height="45px"
               loading="lazy"
             />
           </IgLink>
@@ -51,7 +52,7 @@ const Contact = () => {
             <img
               src={tiktokIcon}
               alt="TikTok Icon"
-              height={isMobile ? "40px" : undefined}
+              height={isMobile ? "40px" : "55px"}
               loading="lazy"
             />
           </TikTokLink>
@@ -61,8 +62,8 @@ const Contact = () => {
       {!isMobile && (
         <div>
           <FluffyLogo
-            src={FluffyDonutsFullLogo}
-            alt="FluffyDonutsLogo"
+            src={newLogo}
+            alt="Fluffy Donuts Café logo"
             loading="lazy"
           />
         </div>
@@ -87,7 +88,8 @@ const ContactDetails = styled.ul`
 `;
 
 const ContactDetail = styled.li`
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
+  color: fuchsia;
   font-weight: ${({ isLabel }) => (isLabel ? "500" : "300")};
   padding-bottom: 1.75rem;
 
@@ -112,7 +114,7 @@ const ContactDetail = styled.li`
 const IgLink = styled.a`
   cursor: pointer;
   align-self: center;
-  margin-right: 10px;
+  margin-right: 20px;
 
   img {
     transition: transform 0.3s;
@@ -139,11 +141,11 @@ const TikTokLink = styled.a`
 `;
 
 const FluffyLogo = styled.img`
-  width: 500px;
+  width: 400px;
   transition: transform 0.3s;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform 0.3s;
   }
 `;
