@@ -22,7 +22,7 @@ const Home = () => {
         alt="fluffy's logo"
         loading="lazy"
       />
-      <Tagline width={isMobile ? "55%" : "auto"}>{tagline}</Tagline>
+      <Tagline width={isMobile ? "54%" : "auto"}>{tagline}</Tagline>
       {!isMobile && (
         <IgLink
           className="scale-fluffy"
@@ -53,18 +53,24 @@ const Container = styled.div`
 `;
 
 const FluffyLogo = styled.img`
-  width: 28vw;
+  width: 50vw;
   max-width: 70vw;
-  margin-top: 8vh;
-
+  margin-bottom: 2rem;
+  /* border: 2px solid fuchsia; */
+  
   animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s both;
   -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    0.5s both;
+  0.5s both;
+  @media (min-width: 768px) {
+    width: 30vw;
+    margin: 14vh auto 5rem auto;
+  }
 `;
 
 const Tagline = styled.p`
   width: ${(props) => props.width};
   font-size: 1.25em;
+  word-spacing: 0.2rem;
   text-align: center;
   margin: 1em 0;
   letter-spacing: 0.1rem;
@@ -72,6 +78,12 @@ const Tagline = styled.p`
   animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
   -webkit-animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
   -moz-animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
+  
+  @media (min-width: 768px) {
+    word-spacing: normal;
+    font-size: 1.5em;
+    margin-bottom: 3em;
+  }
 `;
 
 const IgLink = styled.a`
