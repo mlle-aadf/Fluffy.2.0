@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { IoCloseOutline, IoMenu } from "react-icons/io5";
+
+import { IoCloseOutline } from "react-icons/io5";
 import { Link } from "react-scroll";
 import styled from "styled-components";
+import burgerMenu from "../assets/burger-menu.png";
 
 import { colors } from "../assets/data";
 import LanguageContext from "./LanguageContext";
@@ -38,7 +40,12 @@ const NavMobile = () => {
 
     return (
         <>
-            <MenuIcon id="mobileNav" onClick={() => setExpanded(!expanded)} />
+            <MenuIcon
+                id="mobileNav"
+                src={burgerMenu}
+                alt="Menu Icon"
+                onClick={() => setExpanded(!expanded)}
+            />
             <Container style={{ display: `${expanded === false ? "none" : "flex"}` }}>
                 <CloseIcon onClick={() => setExpanded(!expanded)} />
 
@@ -61,39 +68,40 @@ const NavMobile = () => {
 
 export default NavMobile;
 
-const MenuIcon = styled(IoMenu)`
-    font-size: 2.5rem;
-    position: fixed;
-    top: 1rem;
-    float: right;
-    right: 1.5rem;
+const MenuIcon = styled.img`
+    cursor: pointer;
     display: block;
+    height: 2.5rem;
+    position: fixed;
+    right: 2.5rem;
+    top: 2.5rem;
+    width: 2.5rem;
     z-index: 2;
 `;
 
 const Container = styled.div`
-    flex-direction: column;
     align-items: end;
-    background-color: rgba(0,0,0, 0.8);
-    width: 60%;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
     height: 100vh;
+    padding-right: 2rem;
     position: fixed;
     right: 0;
-    padding-right: 2rem;
+    width: 60%;
     z-index: 3;
 `;
 
 const MobileLink = styled.li`
-    list-style-type: none;
-    text-decoration: none;
+    color: ${({ color }) => color};
     font-size: 1.75rem;
     font-weight: 100;
+    list-style-type: none;
     margin: 1.5rem 0;
-    color: ${({color}) => color};
+    text-decoration: none;
 `;
 
 const CloseIcon = styled(IoCloseOutline)`
+    color: white;
     font-size: 2.5rem;
     margin-top: 2rem;
-    color: white;
 `;

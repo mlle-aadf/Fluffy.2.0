@@ -100,7 +100,7 @@ const RightContainer = styled.div`
   flex-direction: column;
   
   @media (min-width: 768px) {
-    flex: 1.5;
+    flex: 1.25;
     padding-left: 3rem;
     margin-top: -50px;
   }
