@@ -152,9 +152,11 @@ const IconContainer = styled.div`
   display: flex;
   gap: 15px;
   align-items: center;
+  justify-content: center;
   
   @media (min-width: 768px) {
     padding-left: 20px;
+    justify-content: flex-start;
   }
 `;
 
