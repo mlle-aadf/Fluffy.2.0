@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
 import igIcon from "../assets/igIcon.png";
+import tiktokIcon from "../assets/tiktokIcon.png"; /* Add TikTok icon to your assets */
 
 import { colors } from "../assets/data";
 import LanguageContext from "../components/LanguageContext";
@@ -22,7 +23,11 @@ const Contact = () => {
             const [key, value] = detail;
             const { label, text, href } = value;
             return (
-              <ContactDetail color={colors[i]} key={key}>
+              <ContactDetail
+                color={colors[i]}
+                key={key}
+                isLabel={["HOURS", "ADDRESS", "EMAIL", "PHONE"].includes(label)}
+              >
                 <span>{label}:</span>
                 <br />
                 <a href={href} target="blank">
@@ -33,14 +38,24 @@ const Contact = () => {
           })}
         </ContactDetails>
 
-        <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
-          <img
-            src={igIcon}
-            alt="igIcon"
-            height={isMobile ? "40px" : undefined}
-            loading="lazy"
-          />
-        </IgLink>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
+            <img
+              src={igIcon}
+              alt="Instagram Icon"
+              height={isMobile ? "45px" : undefined}
+              loading="lazy"
+            />
+          </IgLink>
+          <TikTokLink href="https://www.tiktok.com/@fluffysmtl" target="blank">
+            <img
+              src={tiktokIcon}
+              alt="TikTok Icon"
+              height={isMobile ? "40px" : undefined}
+              loading="lazy"
+            />
+          </TikTokLink>
+        </div>
       </div>
 
       {!isMobile && (
@@ -68,26 +83,48 @@ const ContactDetails = styled.ul`
   margin-bottom: 30px;
   list-style: none;
   padding: ${({ $padding }) => $padding};
+  line-height: 1.5;
 `;
 
 const ContactDetail = styled.li`
-  color: ${({ color }) => color};
+  color: var(--primary-color);
+  font-weight: ${({ isLabel }) => (isLabel ? "500" : "300")};
   padding-bottom: 1.75rem;
 
   a {
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
+    font-weight: 300; /* Explicitly set lighter weight for links */
 
     &:active {
-      color: ${({ color }) => color};
+      color: var(--primary-color);
     }
     &:hover {
       font-style: italic;
     }
   }
+
+  span {
+    font-weight: ${({ isLabel }) => (isLabel ? "500" : "300")};
+  }
 `;
 
 const IgLink = styled.a`
+  cursor: pointer;
+  align-self: center;
+  margin-right: 10px;
+
+  img {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 0.3s;
+    }
+  }
+`;
+
+const TikTokLink = styled.a`
   cursor: pointer;
   align-self: center;
 
