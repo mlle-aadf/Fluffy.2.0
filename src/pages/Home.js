@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import { default as FluffyDonutsFullLogo, default as FluffyDonutsName } from "../assets/NEWlogo.png";
 import igIcon from "../assets/igIcon.png";
+import tiktokIcon from "../assets/tiktokIcon.png"; // Import the TikTok icon
 import LanguageContext from "../components/LanguageContext";
 
 const Home = () => {
@@ -24,14 +25,24 @@ const Home = () => {
       />
       <Tagline width={isMobile ? "54%" : "auto"}>{tagline}</Tagline>
       {!isMobile && (
-        <IgLink
-          className="scale-fluffy"
-          href="https://www.instagram.com/fluffysmtl/"
-          target="blank"
-          aria-label="Instagram"
-        >
-          <img src={igIcon} alt="Instagram Icon" loading="lazy"/>
-        </IgLink>
+        <SocialLinks>
+          <IgLink
+            className="scale-fluffy"
+            href="https://www.instagram.com/fluffysmtl/"
+            target="blank"
+            aria-label="Instagram"
+          >
+            <img src={igIcon} alt="Instagram Icon" loading="lazy" />
+          </IgLink>
+          <TikTokLink
+            className="scale-fluffy"
+            href="https://www.tiktok.com/@fluffysmtl"
+            target="blank"
+            aria-label="TikTok"
+          >
+            <img src={tiktokIcon} alt="TikTok Icon" height="55px" loading="lazy" />
+          </TikTokLink>
+        </SocialLinks>
       )}
 
       <Arrow
@@ -56,14 +67,14 @@ const FluffyLogo = styled.img`
   width: 50vw;
   max-width: 70vw;
   margin-bottom: 2rem;
-  /* border: 2px solid fuchsia; */
   
   animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s both;
   -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
   0.5s both;
   @media (min-width: 768px) {
-    width: 30vw;
-    margin: 14vh auto 5rem auto;
+    height: 50vh;
+    width: auto;
+    margin: 14vh auto 3rem auto;
   }
 `;
 
@@ -71,6 +82,7 @@ const Tagline = styled.p`
   width: ${(props) => props.width};
   font-size: 1.25em;
   word-spacing: 0.2rem;
+  line-height: 2em;
   text-align: center;
   margin: 1em 0;
   letter-spacing: 0.1rem;
@@ -82,11 +94,34 @@ const Tagline = styled.p`
   @media (min-width: 768px) {
     word-spacing: normal;
     font-size: 1.5em;
-    margin-bottom: 3em;
+    line-height: 1;
+    margin-bottom: 2em;
   }
 `;
 
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`;
+
 const IgLink = styled.a`
+  animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s 1 both;
+  -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.5s 1 both;
+  cursor: pointer;
+
+  img {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 0.3s;
+    }
+  }
+`;
+
+const TikTokLink = styled.a`
   animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s 1 both;
   -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
     0.5s 1 both;
