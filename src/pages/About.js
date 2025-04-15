@@ -21,7 +21,7 @@ const About = () => {
   return (
     <SectionContainer>
       <AnimatePresence>
-        <Slide
+        {/* <Slide
           key={currentSlide}
           initial={{ y: "100vh" }}
           animate={{ y: 0 }}
@@ -45,7 +45,7 @@ const About = () => {
               {slides[currentSlide][language]}
             </Text>
           </TextContainer>
-        </Slide>
+        </Slide> */}
       </AnimatePresence>
     </SectionContainer>
   );

@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
-import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
+import newLogo from "../assets/NEWlogo.png";
 import igIcon from "../assets/igIcon.png";
-import tiktokIcon from "../assets/tiktokIcon.png"; /* Add TikTok icon to your assets */
+import tiktokIcon from "../assets/tiktokIcon.png";
 
 import { colors } from "../assets/data";
 import LanguageContext from "../components/LanguageContext";
@@ -17,7 +17,16 @@ const Contact = () => {
 
   return (
     <FlexContainer fontSize={isMobile ? "1.1rem" : "1.75rem"}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      {!isMobile && (
+        <LeftContainer>
+          <FluffyLogo
+            src={newLogo}
+            alt="Fluffy Donuts Café logo"
+            loading="lazy"
+          />
+        </LeftContainer>
+      )}
+      <RightContainer>
         <ContactDetails $padding={isMobile ? "0" : "30px"}>
           {contactDetails.map((detail, i) => {
             const [key, value] = detail;
@@ -29,7 +38,6 @@ const Contact = () => {
                 isLabel={["HOURS", "ADDRESS", "EMAIL", "PHONE"].includes(label)}
               >
                 <span>{label}:</span>
-                <br />
                 <a href={href} target="blank">
                   {text}
                 </a>
@@ -37,13 +45,12 @@ const Contact = () => {
             );
           })}
         </ContactDetails>
-
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <IconContainer>
           <IgLink href="https://www.instagram.com/fluffysmtl/" target="blank">
             <img
               src={igIcon}
               alt="Instagram Icon"
-              height={isMobile ? "45px" : undefined}
+              height={isMobile ? "45px" : "50px"}
               loading="lazy"
             />
           </IgLink>
@@ -51,36 +58,55 @@ const Contact = () => {
             <img
               src={tiktokIcon}
               alt="TikTok Icon"
-              height={isMobile ? "40px" : undefined}
+              height={isMobile ? "40px" : "50px"}
               loading="lazy"
             />
           </TikTokLink>
-        </div>
-      </div>
-
-      {!isMobile && (
-        <div>
-          <FluffyLogo
-            src={FluffyDonutsFullLogo}
-            alt="FluffyDonutsLogo"
-            loading="lazy"
-          />
-        </div>
-      )}
+        </IconContainer>
+      </RightContainer>
     </FlexContainer>
   );
 };
 
 const FlexContainer = styled.div`
-  justify-content: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: fit-content;
+  padding: 20px;
   font-size: ${({ fontSize }) => fontSize};
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+`;
+
+const LeftContainer = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    align-items: center;
+  }
+`;
+
+const RightContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: 768px) {
+    flex: 1.5;
+    padding-left: 3rem;
+    margin-top: -50px;
+  }
 `;
 
 const ContactDetails = styled.ul`
-  margin-bottom: 30px;
   list-style: none;
   padding: ${({ $padding }) => $padding};
   line-height: 1.5;
@@ -90,11 +116,12 @@ const ContactDetail = styled.li`
   color: var(--primary-color);
   font-weight: ${({ isLabel }) => (isLabel ? "500" : "300")};
   padding-bottom: 1.75rem;
+  line-height: 1.5;
 
   a {
     color: var(--primary-color);
     text-decoration: none;
-    font-weight: 300; /* Explicitly set lighter weight for links */
+    font-weight: 300;
 
     &:active {
       color: var(--primary-color);
@@ -106,13 +133,33 @@ const ContactDetail = styled.li`
 
   span {
     font-weight: ${({ isLabel }) => (isLabel ? "500" : "300")};
+    margin-right: 10px;
+
+    @media (max-width: 767px) {
+      display: block;
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  
+  @media (min-width: 768px) {
+    padding-left: 20px;
   }
 `;
 
 const IgLink = styled.a`
   cursor: pointer;
-  align-self: center;
-  margin-right: 10px;
 
   img {
     transition: transform 0.3s;
@@ -126,7 +173,6 @@ const IgLink = styled.a`
 
 const TikTokLink = styled.a`
   cursor: pointer;
-  align-self: center;
 
   img {
     transition: transform 0.3s;
@@ -139,11 +185,11 @@ const TikTokLink = styled.a`
 `;
 
 const FluffyLogo = styled.img`
-  width: 500px;
+  width: 400px;
   transition: transform 0.3s;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform 0.3s;
   }
 `;
