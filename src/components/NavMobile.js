@@ -89,7 +89,7 @@ const NavMobile = () => {
               </MobileLink>
             );
           })}
-          <SocialIcons delay={nav.length * 0.2}>
+          <SocialIcons key={expanded ? 'expanded' : 'collapsed'} delay={nav.length * 0.2}>
             <IgLink
               href="https://www.instagram.com/fluffysmtl/"
               target="blank"
@@ -183,7 +183,7 @@ const SocialIcons = styled.div`
   margin: 3rem 0 0 auto;
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;
-  animation-delay: ${({ delay }) => delay}s;
+  animation-delay: 2s;
 
   @keyframes fadeIn {
     from {

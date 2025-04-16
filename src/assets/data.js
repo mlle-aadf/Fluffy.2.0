@@ -1,9 +1,12 @@
-import coffee from "../../src/assets/coffee.jpg";
-import coffee_mobile from "../../src/assets/coffee_mobile.jpg";
-import community from "../../src/assets/community.jpg";
-import community_mobile from "../../src/assets/community_mobile.jpg";
-import donut from "../../src/assets/donut.jpg";
-import donut_mobile from "../../src/assets/donut_mobile.jpg";
+import craftDesktop from "../assets/craft_desktop.webp";
+import craftMobile from "../assets/craft_mobile.webp";
+import craftTablet from "../assets/craft_tablet.webp";
+import openingSoonDesktop from "../assets/opening-soon_desktop.webp";
+import openingSoonMobile from "../assets/opening-soon_mobile.webp";
+import openingSoonTablet from "../assets/opening-soon_tablet.webp";
+import spaceDesktop from "../assets/space_desktop.webp";
+import spaceMobile from "../assets/space_mobile.webp";
+import spaceTablet from "../assets/space_tablet.webp";
 
 const colors = ["var(--darkGreen)", "var(--darkPink)", "var(--lightPink)", "var(--lightGreen)"]
 
@@ -35,27 +38,53 @@ const texts = {
 
 const slides = [
     {
-        image: coffee,
-        mobileImage: coffee_mobile,
-        en: 'Coffee is more than just a drink — it’s an art form. As a 3rd Wave café, each bean is ethically sourced and each cup is crafted with care for an elevated experience.',
-        fr:"Le café, c'est bien plus qu'une boisson — c'est un art de vivre. En tant que café 3rd Wave, chaque grain est choisi de manière éthique et chaque tasse préparée avec soin pour offrir une expérience élevée.",
-        altText:"coffee bean / grain de café"
+        id: 1,
+        images: {
+            small: openingSoonMobile,
+            medium: openingSoonTablet,
+            large: openingSoonDesktop,
+        },
+        text: {
+            en: ["Coffee brings people together— so will we.", "From a shared dream to your new favourite café.\nJoin us soon for fresh brews, warm vibes, and plant-based treats."],
+            fr: ["Le café crée des liens — et on fera pareil", "D'un rêve partagé à votre nouveau café préféré.\nBientôt chez vous : café frais, ambiance chaleureuse et gâteries végétariennes."],
+        },
+        altText: {
+            en: "Opening soon!",
+            fr: "Bient t ouvert!",
+        },
     },
     {
-        image: donut,
-        mobileImage: donut_mobile,
-        en: 'Our deliciously fluffy, 100% plant-based doughnuts are made fresh daily from scratch, with love and using only natural, organic ingredients.',
-        fr: "Nos beignes moelleux et délicieux - 100 % à base de plantes - sont préparés maison chaque jour avec amour, uniquement à partir d’ingrédients naturels et biologiques.",
-        altText:"donuts / beignes"
-
+        id: 2,
+        images: {
+            small: craftMobile,
+            medium: craftTablet,
+            large: craftDesktop,
+        },
+        text: {
+            en: ["Where cofffee becomes craft.", "Every cup is handcrafted with care, precision, and a love for the ritual."],
+            fr: ["Où le café est un art.", "Chaque tasse est préparée avec soin, précision et amour pour le rituel."],
+        },
+        altText: {
+            en: "Space",
+            fr: "Espace",
+        },
     },
     {
-        image: community,
-        mobileImage: community_mobile,
-        en: 'From eco-friendly practices to local partnerships, we’re committed to creating a sustainable future and building a connected community.',
-        fr:  "De nos pratiques écoresponsables à nos partenariats locaux, nous sommes engagés à créer un avenir durable et à bâtir une communauté connectée.",
-        altText:"cups / tasses"
-    }
+        id: 3,
+        images: {
+            small: spaceMobile,
+            medium: spaceTablet,
+            large: spaceDesktop,
+        },
+        text: {
+            en: ["This is how it begins.", "A space in the making for coffee and community.\nWe can’t wait to meet you!"],
+            fr: ["Tout commence ici.", "Un lieu en devenir, pensé pour le café et la communauté.\nOn a hâte de vous accueillir!"],
+        },
+        altText: {
+            en: "Craft",
+            fr: "Artisanal",
+        },
+    },
 ];
 
 

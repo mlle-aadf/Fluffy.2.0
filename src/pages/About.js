@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
@@ -9,6 +9,15 @@ const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { language } = useContext(LanguageContext);
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+
+  const getImageSize = () => {
+    if (isMobile) return "small";
+    if (isTablet) return "medium";
+    return "large";
+  };
+
+  const imageSize = getImageSize();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,33 +29,25 @@ const About = () => {
 
   return (
     <SectionContainer>
-      <AnimatePresence>
-        {/* <Slide
-          key={currentSlide}
-          initial={{ y: "100vh" }}
-          animate={{ y: 0 }}
-          exit={{ y: "-100vh" }}
-          transition={{ duration: 2 }}
-          bgimage={
-            isMobile
-              ? slides[currentSlide].mobileImage
-              : slides[currentSlide].image
-          }
-          width={isMobile ? "100%" : "70vw"}
-          left={isMobile ? "0" : "15vw"}
-          aria-label={slides[currentSlide].altText}
+      {slides.map((slide, index) => (
+        <SlideContainer
+          key={slide.id}
+          isMobile={isMobile}
+          initial={{ x: index === currentSlide ? "0%" : "100%" }}
+          animate={{ x: index === currentSlide ? "0%" : "-100%" }}
+          transition={{ duration: 0.8 }}
         >
-          <Overlay />
-          <TextContainer
-            width={isMobile ? "90%" : "55vw"}
-            $top={isMobile ? "20%" : "30%"}
-          >
-            <Text fontSize={isMobile ? "1.75rem" : "2.5rem"}>
-              {slides[currentSlide][language]}
+          <ImageContainer bgimage={slide.images[imageSize]} isMobile={isMobile} />
+          <TextContainer isMobile={isMobile}>
+            <Headline fontSize={isMobile ? "1.2rem" : "2rem"} isMobile={isMobile}>
+              {slide.text[language][0]}
+            </Headline>
+            <Text fontSize={isMobile ? "1rem" : "1.5rem"} isMobile={isMobile}>
+              {slide.text[language][1]}
             </Text>
           </TextContainer>
-        </Slide> */}
-      </AnimatePresence>
+        </SlideContainer>
+      ))}
     </SectionContainer>
   );
 };
@@ -58,42 +59,48 @@ const SectionContainer = styled.div`
   overflow: hidden;
 `;
 
-const Slide = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: ${({ left }) => left};
-  width: ${({ width }) => width};
-  height: 100vh;
-  background-image: url(${({ bgimage }) => bgimage});
-  background-size: cover;
+const SlideContainer = styled(motion.div)`
   display: flex;
+  flex-direction: ${({ isMobile }) => (isMobile ? "column" : "row")};
+  align-items: center;
   justify-content: center;
-`;
-
-const Overlay = styled.div`
-  /* 50% shadow overlay */
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+`;
+
+const ImageContainer = styled.div`
+  width: ${({ isMobile }) => (isMobile ? "100%" : "65%")};
+  height: ${({ isMobile }) => (isMobile ? "60vh" : "100vh")};
+  background-image: url(${({ bgimage }) => bgimage});
+  background-size: cover;
+  background-position: center;
 `;
 
 const TextContainer = styled.div`
-  position: absolute;
-  z-index: 2;
-  top: ${({ $top }) => $top};
+  width: ${({ isMobile }) => (isMobile ? "100%" : "50%")};
+  padding: ${({ isMobile }) => (isMobile ? "1rem" : "3rem")};
   display: flex;
-  width: ${({ width }) => width};
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  text-align: ${({ isMobile }) => (isMobile ? "center" : "left")};
 `;
 
-const Text = styled.h2`
-  color: white;
-  opacity: 0.75;
+const Headline = styled.h2`
+  color: var(--primary);
+  opacity: ${({ isMobile }) => (isMobile ? "1" : "0.75")};
+  font-size: ${({ fontSize }) => fontSize};
+  font-weight: 500;
+  max-width: 80%;
+  line-height: 1.5;
+`;
+
+const Text = styled.p`
+  color: var(--primary);
+  opacity: 0.5;
   font-size: ${({ fontSize }) => fontSize};
   font-weight: 500;
   max-width: 80%;
