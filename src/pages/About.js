@@ -35,10 +35,10 @@ const About = () => {
           isMobile={isMobile}
           initial={{ x: index === currentSlide ? "0%" : "100%" }}
           animate={{ x: index === currentSlide ? "0%" : "-100%" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
         >
           <ImageContainer bgimage={slide.images[imageSize]} isMobile={isMobile} />
-          <TextContainer isMobile={isMobile}>
+          <TextContainer >
             <Headline fontSize={isMobile ? "1.2rem" : "2rem"} isMobile={isMobile}>
               {slide.text[language][0]}
             </Headline>
@@ -72,21 +72,29 @@ const SlideContainer = styled(motion.div)`
 `;
 
 const ImageContainer = styled.div`
-  width: ${({ isMobile }) => (isMobile ? "100%" : "65%")};
+  width: ${({ isMobile }) => (isMobile ? "100%" : "55%")};
   height: ${({ isMobile }) => (isMobile ? "60vh" : "100vh")};
   background-image: url(${({ bgimage }) => bgimage});
   background-size: cover;
   background-position: center;
+  background-position-y: -1.8rem;
+  margin-top: ${({ isMobile }) => (isMobile ? "10vh" : "0")};
 `;
 
 const TextContainer = styled.div`
-  width: ${({ isMobile }) => (isMobile ? "100%" : "50%")};
-  padding: ${({ isMobile }) => (isMobile ? "1rem" : "3rem")};
+  width: 100%;
+  padding:1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: ${({ isMobile }) => (isMobile ? "center" : "left")};
+  text-align: center;
+
+  @media (min-width: 768px) {
+    align-items: start;
+    text-align: left;
+    width: 50%;
+    padding: 3rem;
+  }
 `;
 
 const Headline = styled.h2`
@@ -96,6 +104,7 @@ const Headline = styled.h2`
   font-weight: 500;
   max-width: 80%;
   line-height: 1.5;
+  
 `;
 
 const Text = styled.p`

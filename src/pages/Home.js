@@ -74,7 +74,7 @@ const FluffyLogo = styled.img`
   @media (min-width: 768px) {
     height: 50vh;
     width: auto;
-    margin: 14vh auto 3rem auto;
+    margin: 15vh auto 2.5rem auto;
   }
 `;
 
