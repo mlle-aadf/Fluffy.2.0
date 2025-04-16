@@ -8,8 +8,11 @@ import LanguageContext from "../components/LanguageContext";
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { language } = useContext(LanguageContext);
+
+  // Responsive breakpoints
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const isDesktop = useMediaQuery({ minWidth: 1025 });
 
   const getImageSize = () => {
     if (isMobile) return "small";
@@ -22,7 +25,7 @@ const About = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 7000); // Change slides every 7 seconds
+    }, 7000);
 
     return () => clearInterval(interval);
   }, []);
@@ -37,12 +40,17 @@ const About = () => {
           animate={{ x: index === currentSlide ? "0%" : "-100%" }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
-          <ImageContainer bgimage={slide.images[imageSize]} isMobile={isMobile} />
-          <TextContainer >
-            <Headline fontSize={isMobile ? "1.2rem" : "2rem"} isMobile={isMobile}>
+          <ImageContainer
+            bgimage={slide.images[imageSize]}
+            isMobile={isMobile}
+            isTablet={isTablet}
+            isDesktop={isDesktop}
+          />
+          <TextContainer isMobile={isMobile} isTablet={isTablet} isDesktop={isDesktop}>
+            <Headline fontSize={isMobile ? "1.2rem" : "2rem"}>
               {slide.text[language][0]}
             </Headline>
-            <Text fontSize={isMobile ? "1rem" : "1.5rem"} isMobile={isMobile}>
+            <Text fontSize={isMobile ? "1rem" : "1.5rem"}>
               {slide.text[language][1]}
             </Text>
           </TextContainer>
@@ -77,24 +85,16 @@ const ImageContainer = styled.div`
   background-image: url(${({ bgimage }) => bgimage});
   background-size: cover;
   background-position: center;
-  background-position-y: -1.8rem;
   margin-top: ${({ isMobile }) => (isMobile ? "10vh" : "0")};
 `;
 
 const TextContainer = styled.div`
-  width: 100%;
-  padding:1rem;
+  width: ${({ isMobile }) => (isMobile ? "100%" : "50%")};
+  padding: ${({ isMobile }) => (isMobile ? "1rem" : "3rem")};
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    align-items: start;
-    text-align: left;
-    width: 50%;
-    padding: 3rem;
-  }
+  align-items: ${({ isMobile }) => (isMobile ? "center" : "flex-start")};
+  text-align: ${({ isMobile }) => (isMobile ? "center" : "left")};
 `;
 
 const Headline = styled.h2`
@@ -104,12 +104,11 @@ const Headline = styled.h2`
   font-weight: 500;
   max-width: 80%;
   line-height: 1.5;
-  
 `;
 
 const Text = styled.p`
   color: var(--primary);
-  opacity: 0.5;
+  opacity: ${({ isMobile }) => (isMobile ? "0.5" : "0.75")};
   font-size: ${({ fontSize }) => fontSize};
   font-weight: 500;
   max-width: 80%;
@@ -117,3 +116,4 @@ const Text = styled.p`
 `;
 
 export default About;
+
