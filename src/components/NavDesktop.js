@@ -15,7 +15,7 @@ const NavDesktop = () => {
       const viewportHeight = window.innerHeight;
 
       setIsScrolledPast95vh(scrollY > viewportHeight * 0.95); // Check if scrolled past 95vh
-      setIsScrolledBefore200vh(scrollY < viewportHeight * 2); // Check if scrolled before 200vh
+      setIsScrolledBefore200vh(scrollY < viewportHeight * 1.9); // Check if scrolled before 200vh
     };
 
     window.addEventListener("scroll", handleScroll);
