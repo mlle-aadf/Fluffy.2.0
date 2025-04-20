@@ -85,7 +85,7 @@ const ImageContainer = styled.div`
   background-image: url(${({ bgimage }) => bgimage});
   background-size: cover;
   background-position: center;
-  margin-top: ${({ isMobile }) => (isMobile ? "10vh" : "0")};
+  margin-top: ${({ isMobile }) => (isMobile ? "7vh" : "0")};
 `;
 
 const TextContainer = styled.div`

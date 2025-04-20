@@ -183,7 +183,7 @@ const SocialIcons = styled.div`
   margin: 3rem 0 0 auto;
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;
-  animation-delay: 2s;
+  animation-delay: 1s;
 
   @keyframes fadeIn {
     from {
