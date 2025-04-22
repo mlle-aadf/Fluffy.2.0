@@ -96,6 +96,8 @@ const TextContainer = styled.div`
   flex-direction: column;
   align-items: ${({ isMobile }) => (isMobile ? "center" : "flex-start")};
   text-align: ${({ isMobile }) => (isMobile ? "center" : "left")};
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
 `;
 
 const Headline = styled.h2`
