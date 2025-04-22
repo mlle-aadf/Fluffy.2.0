@@ -25,7 +25,7 @@ const NavDesktop = () => {
     };
   }, []);
 
-  console.log('href', href);
+  console.log("href", href);
 
   return (
     <Container isScrolledPast95vh={isScrolledPast95vh}>
@@ -33,9 +33,7 @@ const NavDesktop = () => {
         {nav.map((link, i) => (
           <DesktopLink
             key={`navLink-${link}`}
-            // link={link}
             to={href[i]}
-            // isLanguageLink={i === 3}
             isHomeOrAbout={isScrolledPast95vh && isScrolledBefore200vh && i < 2} // "HOME" and "ABOUT" condition
             toggleLanguage={toggleLanguage}
           >
@@ -53,19 +51,6 @@ const NavDesktop = () => {
     </Container>
   );
 };
-
-// const DesktopLinkItem = ({ link, to, isLanguageLink, isHomeOrAbout, toggleLanguage }) => (
-//   <DesktopLink isHomeOrAbout={isHomeOrAbout}>
-//     <Link
-//       to={to}
-//       smooth={true}
-//       duration={500}
-//       onClick={isLanguageLink ? toggleLanguage : null}
-//     >
-//       {link}
-//     </Link>
-//   </DesktopLink>
-// );
 
 export default NavDesktop;
 

@@ -3,7 +3,10 @@ import { HiArrowLongDown } from "react-icons/hi2";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
-import { default as FluffyDonutsFullLogo, default as FluffyDonutsName } from "../assets/NEWlogo.webp";
+import {
+  default as FluffyDonutsFullLogo,
+  default as FluffyDonutsName,
+} from "../assets/NEWlogo.webp";
 import igIcon from "../assets/igIcon.webp";
 import tiktokIcon from "../assets/tiktokIcon.webp"; // Import the TikTok icon
 import LanguageContext from "../components/LanguageContext";
@@ -39,7 +42,12 @@ const Home = () => {
             target="blank"
             aria-label="TikTok"
           >
-            <img src={tiktokIcon} alt="TikTok Icon" height="55px" loading="lazy" />
+            <img
+              src={tiktokIcon}
+              alt="TikTok Icon"
+              height="55px"
+              loading="lazy"
+            />
           </TikTokLink>
         </SocialLinks>
       )}
@@ -66,10 +74,10 @@ const FluffyLogo = styled.img`
   width: 50vw;
   max-width: 70vw;
   margin-bottom: 2rem;
-  
+
   animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s both;
   -webkit-animation: scale-fluffy 2.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-  0.5s both;
+    0.5s both;
   @media (min-width: 768px) {
     height: 50vh;
     width: auto;
@@ -87,9 +95,10 @@ const Tagline = styled.p`
   letter-spacing: 0.1rem;
   color: var(--primary-color);
   animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
-  -webkit-animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
+  -webkit-animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1
+    both;
   -moz-animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s 1 both;
-  
+
   @media (min-width: 768px) {
     word-spacing: normal;
     font-size: 1.5em;
