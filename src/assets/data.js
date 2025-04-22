@@ -61,7 +61,7 @@ const slides = [
             large: craftDesktop,
         },
         text: {
-            en: ["Where cofffee becomes craft.", "Every cup is handcrafted with care, precision, and a love for the ritual."],
+            en: ["Where coffee becomes craft.", "Every cup is handcrafted with care, precision, and a love for the ritual."],
             fr: ["Où le café est un art.", "Chaque tasse est préparée avec soin, précision et amour pour le rituel."],
         },
         altText: {

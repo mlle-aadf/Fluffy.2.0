@@ -3,9 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { Link } from "react-scroll";
 import styled from "styled-components";
-import burgerMenu from "../assets/burger-menu.png";
-import IgIcon from "../assets/igIcon.png";
-import TikTokIcon from "../assets/tiktokIcon.png"; // Import the TikTok icon
+import burgerMenu from "../assets/burger-menu.webp";
+import IgIcon from "../assets/igIcon.webp";
+import TikTokIcon from "../assets/tiktokIcon.webp"; // Import the TikTok icon
 
 import { colors } from "../assets/data";
 import LanguageContext from "./LanguageContext";

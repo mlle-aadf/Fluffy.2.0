@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
-  font-size: 16px;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);

@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
-import newLogo from "../assets/NEWlogo.png";
-import igIcon from "../assets/igIcon.png";
-import tiktokIcon from "../assets/tiktokIcon.png";
+import newLogo from "../assets/NEWlogo.webp";
+import igIcon from "../assets/igIcon.webp";
+import tiktokIcon from "../assets/tiktokIcon.webp";
 
 import { colors } from "../assets/data";
 import LanguageContext from "../components/LanguageContext";

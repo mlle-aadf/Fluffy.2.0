@@ -89,8 +89,8 @@ const ImageContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-  width: ${({ isMobile }) => (isMobile ? "100%" : "50%")};
-  padding: ${({ isMobile }) => (isMobile ? "1rem" : "3rem")};
+  width: ${({ isMobile }) => (isMobile ? "100%" : "45%")};
+  padding: ${({ isMobile }) => (isMobile ? "1rem" : "3rem 3rem 3rem 6rem")};
   display: flex;
   flex-direction: column;
   align-items: ${({ isMobile }) => (isMobile ? "center" : "flex-start")};

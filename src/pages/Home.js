@@ -3,9 +3,9 @@ import { HiArrowLongDown } from "react-icons/hi2";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
-import { default as FluffyDonutsFullLogo, default as FluffyDonutsName } from "../assets/NEWlogo.png";
-import igIcon from "../assets/igIcon.png";
-import tiktokIcon from "../assets/tiktokIcon.png"; // Import the TikTok icon
+import { default as FluffyDonutsFullLogo, default as FluffyDonutsName } from "../assets/NEWlogo.webp";
+import igIcon from "../assets/igIcon.webp";
+import tiktokIcon from "../assets/tiktokIcon.webp"; // Import the TikTok icon
 import LanguageContext from "../components/LanguageContext";
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
         className="scale-fluffy"
         src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName}
         alt="fluffy's logo"
-        loading="lazy"
+        // loading="lazy"
       />
       <Tagline width={isMobile ? "54%" : "auto"}>{tagline}</Tagline>
       {!isMobile && (

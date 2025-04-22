@@ -85,6 +85,7 @@ const Links = styled.ul`
   animation: fade-in-right 1s cubic-bezier(0.39, 0.575, 0.565, 1) 2s both;
   width: 50vw;
   justify-content: space-between;
+  font-size: 1.5rem;
 `;
 
 const DesktopLink = styled.li`
@@ -93,7 +94,6 @@ const DesktopLink = styled.li`
     isHomeOrAbout ? "var(--background-color)" : "var(--primary-color)"};
   list-style-type: none;
   font-weight: 400;
-  font-size: 1.1rem;
   padding-top: 1rem;
   transition: transform 0.2s, color 0.2s;
   cursor: pointer;
