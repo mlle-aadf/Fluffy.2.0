@@ -7,7 +7,7 @@ const NavDesktop = () => {
   const [isScrolledPast95vh, setIsScrolledPast95vh] = useState(false); // State for 95vh
   const [isScrolledBefore200vh, setIsScrolledBefore200vh] = useState(false); // State for 200vh
   const { language, texts, toggleLanguage } = useContext(LanguageContext);
-  const { greeting, nav } = texts[language];
+  const { href, nav } = texts[language];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,41 +25,47 @@ const NavDesktop = () => {
     };
   }, []);
 
+  console.log('href', href);
+
   return (
     <Container isScrolledPast95vh={isScrolledPast95vh}>
-      {/* <Welcome id="welcome" className={"scale-welcome"}>
-        <Donut src={MmDonut} alt="donut" loading="lazy" />
-        <Text>{greeting} 👋</Text>
-      </Welcome> */}
-
       <Links id="links">
         {nav.map((link, i) => (
-          <DesktopLinkItem
+          <DesktopLink
             key={`navLink-${link}`}
-            link={link}
-            to={`section-${i}`}
-            isLanguageLink={i === 3}
+            // link={link}
+            to={href[i]}
+            // isLanguageLink={i === 3}
             isHomeOrAbout={isScrolledPast95vh && isScrolledBefore200vh && i < 2} // "HOME" and "ABOUT" condition
             toggleLanguage={toggleLanguage}
-          />
+          >
+            <Link
+              to={href[i]}
+              smooth={true}
+              duration={500}
+              onClick={i === 3 ? toggleLanguage : null}
+            >
+              {link}
+            </Link>
+          </DesktopLink>
         ))}
       </Links>
     </Container>
   );
 };
 
-const DesktopLinkItem = ({ link, to, isLanguageLink, isHomeOrAbout, toggleLanguage }) => (
-  <DesktopLink isHomeOrAbout={isHomeOrAbout}>
-    <Link
-      to={to}
-      smooth={true}
-      duration={500}
-      onClick={isLanguageLink ? toggleLanguage : null}
-    >
-      {link}
-    </Link>
-  </DesktopLink>
-);
+// const DesktopLinkItem = ({ link, to, isLanguageLink, isHomeOrAbout, toggleLanguage }) => (
+//   <DesktopLink isHomeOrAbout={isHomeOrAbout}>
+//     <Link
+//       to={to}
+//       smooth={true}
+//       duration={500}
+//       onClick={isLanguageLink ? toggleLanguage : null}
+//     >
+//       {link}
+//     </Link>
+//   </DesktopLink>
+// );
 
 export default NavDesktop;
 

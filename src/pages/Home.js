@@ -15,13 +15,12 @@ const Home = () => {
   const { tagline } = texts[language];
 
   return (
-    <Container>
+    <Container id="/">
       <FluffyLogo
         id="homeLogo"
         className="scale-fluffy"
         src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName}
         alt="fluffy's logo"
-        // loading="lazy"
       />
       <Tagline width={isMobile ? "54%" : "auto"}>{tagline}</Tagline>
       {!isMobile && (

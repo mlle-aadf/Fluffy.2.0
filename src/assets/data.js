@@ -15,6 +15,7 @@ const texts = {
         greeting: "WELCOME",
         tagline: "COFFEE + DONUTS. PLANT-BASED. GOOD VIBES.",
         nav: ["HOME", "ABOUT", "CONTACT", "FR"],
+        href: ["/", "/about", "/contact", "/fr"],
         contact: {
             hours: {label: "HOURS", text: "M to S, 7 - 5"},
             address: {label: "ADDRESS", text: "4847 WELLINGTON ST.", href:"https://maps.app.goo.gl/DKZrqYSEHwRbHkMG9"},
@@ -26,6 +27,7 @@ const texts = {
         greeting: "BIENVENUE",
         tagline: "CAFÉ + BEIGNES. PLANT-BASED. BONNES VIBES.",
         nav: ["ACCUEIL", "À PROPOS", "CONTACT", "EN"],
+        href: ["/", "/about", "/contact", "/fr"],
         contact: {
             hours: {label: "HEURES", text: "L à D, 7 - 5"},
             address: {label: "ADRESSE", text: "4847 RUE WELLINGTON", href:"https://maps.app.goo.gl/DKZrqYSEHwRbHkMG9"},

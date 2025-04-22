@@ -31,7 +31,7 @@ const About = () => {
   }, []);
 
   return (
-    <SectionContainer>
+    <SectionContainer id="/about">
       {slides.map((slide, index) => (
         <SlideContainer
           key={slide.id}
@@ -83,6 +83,7 @@ const ImageContainer = styled.div`
   width: ${({ isMobile }) => (isMobile ? "100%" : "55%")};
   height: ${({ isMobile }) => (isMobile ? "60vh" : "100vh")};
   background-image: url(${({ bgimage }) => bgimage});
+  
   background-size: cover;
   background-position: center;
   margin-top: ${({ isMobile }) => (isMobile ? "7vh" : "0")};

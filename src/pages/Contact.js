@@ -17,7 +17,7 @@ const Contact = () => {
   const contactDetails = Object.entries(contact);
 
   return (
-    <FlexContainer fontSize={isMobile ? "1.1rem" : "1.75rem"}>
+    <FlexContainer id="/contact" fontSize={isMobile ? "1.1rem" : "1.75rem"}>
       {!isMobile && (
         <LeftContainer>
           <FluffyLogo
@@ -39,9 +39,11 @@ const Contact = () => {
                 isLabel={labels.includes(label)}
               >
                 <span>{label}:</span>
-                <a href={href} target="blank">
-                  {text}
-                </a>
+                {i === 0 ? text : 
+                  <a href={href} target="_blank" rel="noreferrer">
+                    {text}
+                  </a>
+                }
               </ContactDetail>
             );
           })}

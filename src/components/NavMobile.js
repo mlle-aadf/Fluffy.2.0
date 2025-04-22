@@ -7,12 +7,11 @@ import burgerMenu from "../assets/burger-menu.webp";
 import IgIcon from "../assets/igIcon.webp";
 import TikTokIcon from "../assets/tiktokIcon.webp"; // Import the TikTok icon
 
-import { colors } from "../assets/data";
 import LanguageContext from "./LanguageContext";
 
 const NavMobile = () => {
   const { language, texts, toggleLanguage } = useContext(LanguageContext);
-  const { nav } = texts[language];
+  const { href, nav } = texts[language];
 
   const [expanded, setExpanded] = useState(false);
 
@@ -77,11 +76,10 @@ const NavMobile = () => {
             return (
               <MobileLink
                 key={`navLink-${link}-${expanded}`}
-                color={colors[i]}
                 delay={i * 0.2}
               >
                 <Link
-                  to={`section-${i}`}
+                  to={`${href[i]}`}
                   onClick={() => toggleLanguageHandler(isLanguageLink)}
                 >
                   {link}
@@ -92,14 +90,14 @@ const NavMobile = () => {
           <SocialIcons key={expanded ? 'expanded' : 'collapsed'} delay={nav.length * 0.2}>
             <IgLink
               href="https://www.instagram.com/fluffysmtl/"
-              target="blank"
+              target="_blank"
               aria-label="Instagram"
             >
               <img src={IgIcon} alt="Instagram Icon" />
             </IgLink>
             <TikTokLink
               href="https://www.tiktok.com/@fluffysmtl"
-              target="blank"
+              target="_blank"
               aria-label="TikTok"
             >
               <img src={TikTokIcon} alt="TikTok Icon" />
