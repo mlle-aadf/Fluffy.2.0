@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-scroll";
+import { scroller } from "react-scroll";
 import styled from "styled-components";
 import LanguageContext from "./LanguageContext";
 
@@ -25,7 +25,13 @@ const NavDesktop = () => {
     };
   }, []);
 
-  console.log("href", href);
+  const handleSmoothScroll = (e, target) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    scroller.scrollTo(target.replace("#", ""), {
+      duration: 800,
+      smooth: "easeInOutQuad",
+    });
+  };
 
   return (
     <Container isScrolledPast95vh={isScrolledPast95vh}>
@@ -33,18 +39,16 @@ const NavDesktop = () => {
         {nav.map((link, i) => (
           <DesktopLink
             key={`navLink-${link}`}
-            to={href[i]}
             isHomeOrAbout={isScrolledPast95vh && isScrolledBefore200vh && i < 2} // "HOME" and "ABOUT" condition
             toggleLanguage={toggleLanguage}
           >
-            <Link
-              to={href[i]}
-              smooth={true}
-              duration={500}
-              onClick={i === 3 ? toggleLanguage : null}
+            <a
+              href={href[i]} // Standard href for SEO
+              onClick={(e) => handleSmoothScroll(e, href[i])} // Smooth scrolling
+              aria-label={`Navigation link to ${link}`}
             >
               {link}
-            </Link>
+            </a>
           </DesktopLink>
         ))}
       </Links>
@@ -88,6 +92,11 @@ const DesktopLink = styled.li`
   padding-top: 1rem;
   transition: transform 0.2s, color 0.2s;
   cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   &:hover {
     transform: scale(1.2);
