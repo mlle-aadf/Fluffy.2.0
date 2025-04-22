@@ -6,7 +6,8 @@ const LanguageContext = createContext();
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('en');
 
-  const toggleLanguage = () => {
+  const toggleLanguage = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
     setLanguage((prevLang) => (prevLang === 'en' ? 'fr' : 'en'));
   };
 

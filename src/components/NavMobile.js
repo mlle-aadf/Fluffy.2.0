@@ -47,9 +47,9 @@ const NavMobile = () => {
     };
   }, [expanded]);
 
-  const toggleLanguageHandler = (isLanguageLink) => {
+  const toggleLanguageHandler = (e, isLanguageLink) => {
     setExpanded(!expanded);
-    return isLanguageLink === true ? toggleLanguage() : null;
+    return isLanguageLink === true ? toggleLanguage(e) : null;
   };
 
   return (
@@ -80,7 +80,7 @@ const NavMobile = () => {
               >
                 <Link
                   to={`${href[i]}`}
-                  onClick={() => toggleLanguageHandler(isLanguageLink)}
+                  onClick={(e) => toggleLanguageHandler(e, isLanguageLink)}
                 >
                   {link}
                 </Link>
@@ -114,10 +114,10 @@ export default NavMobile;
 const MenuIcon = styled.img`
   cursor: pointer;
   display: block;
-  height: 2.5rem;
+  height: 1.5rem;
   position: fixed;
   right: 2.5rem;
-  top: 2.5rem;
+  top: 1.5rem;
   width: 2.5rem;
   z-index: 2;
 `;

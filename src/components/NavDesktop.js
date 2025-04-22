@@ -34,17 +34,17 @@ const NavDesktop = () => {
   };
 
   return (
-    <Container isScrolledPast95vh={isScrolledPast95vh}>
+    <Container $isScrolledPast95vh={isScrolledPast95vh}>
       <Links id="links">
         {nav.map((link, i) => (
           <DesktopLink
             key={`navLink-${link}`}
-            isHomeOrAbout={isScrolledPast95vh && isScrolledBefore200vh && i < 2} // "HOME" and "ABOUT" condition
+            $isHomeOrAbout={isScrolledPast95vh && isScrolledBefore200vh && i < 2} // "HOME" and "ABOUT" condition
             toggleLanguage={toggleLanguage}
           >
             <a
               href={href[i]} // Standard href for SEO
-              onClick={(e) => handleSmoothScroll(e, href[i])} // Smooth scrolling
+              onClick={(e) => (i === 3 ? toggleLanguage(e) : handleSmoothScroll(e, href[i]))} 
               aria-label={`Navigation link to ${link}`}
             >
               {link}
@@ -66,8 +66,8 @@ const Container = styled.div`
   justify-content: center;
   position: fixed;
   top: 0%;
-  background: ${({ isScrolledPast95vh }) =>
-    isScrolledPast95vh
+  background: ${({ $isScrolledPast95vh }) =>
+    $isScrolledPast95vh
       ? "transparent"
       : "linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0.7) 85%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 0.3) 93%, rgba(255, 255, 255, 0.1) 95%, rgba(255, 255, 255, 0) 100%)"};
   letter-spacing: 0.2rem;
@@ -85,8 +85,8 @@ const Links = styled.ul`
 
 const DesktopLink = styled.li`
   align-self: center;
-  color: ${({ isHomeOrAbout }) =>
-    isHomeOrAbout ? "var(--background-color)" : "var(--primary-color)"};
+  color: ${({ $isHomeOrAbout }) =>
+    $isHomeOrAbout ? "var(--background-color)" : "var(--primary-color)"};
   list-style-type: none;
   font-weight: 400;
   padding-top: 1rem;
