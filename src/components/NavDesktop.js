@@ -40,7 +40,7 @@ const NavDesktop = () => {
           <DesktopLink
             key={`navLink-${link}`}
             $isHomeOrAbout={isScrolledPast95vh && isScrolledBefore200vh && i < 2} // "HOME" and "ABOUT" condition
-            toggleLanguage={toggleLanguage}
+            // $toggleLanguage={toggleLanguage}
           >
             <a
               href={href[i]} // Standard href for SEO

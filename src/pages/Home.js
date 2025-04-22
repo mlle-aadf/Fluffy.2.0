@@ -4,15 +4,15 @@ import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
 import {
-  default as FluffyDonutsFullLogo,
-  default as FluffyDonutsName,
+    default as FluffyDonutsFullLogo,
+    default as FluffyDonutsName,
 } from "../assets/NEWlogo.webp";
 import igIcon from "../assets/igIcon.webp";
 import tiktokIcon from "../assets/tiktokIcon.webp"; // Import the TikTok icon
 import LanguageContext from "../components/LanguageContext";
 
 const Home = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const $isMobile = useMediaQuery({ maxWidth: 767 });
   const { language, texts } = useContext(LanguageContext);
 
   const { tagline } = texts[language];
@@ -22,11 +22,11 @@ const Home = () => {
       <FluffyLogo
         id="homeLogo"
         className="scale-fluffy"
-        src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName}
+        src={$isMobile ? FluffyDonutsFullLogo : FluffyDonutsName}
         alt="fluffy's logo"
       />
-      <Tagline width={isMobile ? "54%" : "auto"}>{tagline}</Tagline>
-      {!isMobile && (
+      <Tagline width={$isMobile ? "54%" : "auto"}>{tagline}</Tagline>
+      {!$isMobile && (
         <SocialLinks>
           <IgLink
             className="scale-fluffy"
@@ -53,8 +53,8 @@ const Home = () => {
       )}
 
       <Arrow
-        align={isMobile ? "center" : "flex-end"}
-        padding={isMobile ? "0" : "3.5rem"}
+        align={$isMobile ? "center" : "flex-end"}
+        padding={$isMobile ? "0" : "3.5rem"}
       />
     </Container>
   );

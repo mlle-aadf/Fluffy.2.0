@@ -10,13 +10,13 @@ const About = () => {
   const { language } = useContext(LanguageContext);
 
   // Responsive breakpoints
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
-  const isDesktop = useMediaQuery({ minWidth: 1025 });
+  const $isMobile = useMediaQuery({ maxWidth: 767 });
+  const $isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const $isDesktop = useMediaQuery({ minWidth: 1025 });
 
   const getImageSize = () => {
-    if (isMobile) return "small";
-    if (isTablet) return "medium";
+    if ($isMobile) return "small";
+    if ($isTablet) return "medium";
     return "large";
   };
 
@@ -35,22 +35,22 @@ const About = () => {
       {slides.map((slide, index) => (
         <SlideContainer
           key={slide.id}
-          isMobile={isMobile}
+          $isMobile={$isMobile}
           initial={{ x: index === currentSlide ? "0%" : "100%" }}
           animate={{ x: index === currentSlide ? "0%" : "-100%" }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
           <ImageContainer
-            bgimage={slide.images[imageSize]}
-            isMobile={isMobile}
-            isTablet={isTablet}
-            isDesktop={isDesktop}
+            $bgimage={slide.images[imageSize]}
+            $isMobile={$isMobile}
+            $isTablet={$isTablet}
+            $isDesktop={$isDesktop}
           />
-          <TextContainer isMobile={isMobile} isTablet={isTablet} isDesktop={isDesktop}>
-            <Headline fontSize={isMobile ? "1.2rem" : "2rem"}>
+          <TextContainer $isMobile={$isMobile} $isTablet={$isTablet} $isDesktop={$isDesktop}>
+            <Headline fontSize={$isMobile ? "1.2rem" : "2rem"}>
               {slide.text[language][0]}
             </Headline>
-            <Text fontSize={isMobile ? "1rem" : "1.5rem"}>
+            <Text fontSize={$isMobile ? "1rem" : "1.5rem"}>
               {slide.text[language][1]}
             </Text>
           </TextContainer>
@@ -69,7 +69,7 @@ const SectionContainer = styled.div`
 
 const SlideContainer = styled(motion.div)`
   display: flex;
-  flex-direction: ${({ isMobile }) => (isMobile ? "column" : "row")};
+  flex-direction: ${({ $isMobile }) => ($isMobile ? "column" : "row")};
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -80,29 +80,29 @@ const SlideContainer = styled(motion.div)`
 `;
 
 const ImageContainer = styled.div`
-  width: ${({ isMobile }) => (isMobile ? "100%" : "55%")};
-  height: ${({ isMobile }) => (isMobile ? "60vh" : "100vh")};
-  background-image: url(${({ bgimage }) => bgimage});
+  width: ${({ $isMobile }) => ($isMobile ? "100%" : "55%")};
+  height: ${({ $isMobile }) => ($isMobile ? "60vh" : "100vh")};
+  background-image: url(${({ $bgimage }) => $bgimage});
   
   background-size: cover;
   background-position: center;
-  margin-top: ${({ isMobile }) => (isMobile ? "7vh" : "0")};
+  margin-top: ${({ $isMobile }) => ($isMobile ? "7vh" : "0")};
 `;
 
 const TextContainer = styled.div`
-  width: ${({ isMobile }) => (isMobile ? "100%" : "45%")};
-  padding: ${({ isMobile }) => (isMobile ? "1rem" : "3rem 3rem 3rem 6rem")};
+  width: ${({ $isMobile }) => ($isMobile ? "100%" : "45%")};
+  padding: ${({ $isMobile }) => ($isMobile ? "1rem" : "3rem 3rem 3rem 6rem")};
   display: flex;
   flex-direction: column;
-  align-items: ${({ isMobile }) => (isMobile ? "center" : "flex-start")};
-  text-align: ${({ isMobile }) => (isMobile ? "center" : "left")};
+  align-items: ${({ $isMobile }) => ($isMobile ? "center" : "flex-start")};
+  text-align: ${({ $isMobile }) => ($isMobile ? "center" : "left")};
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 `;
 
 const Headline = styled.h2`
   color: var(--primary);
-  opacity: ${({ isMobile }) => (isMobile ? "1" : "0.75")};
+  opacity: ${({ $isMobile }) => ($isMobile ? "1" : "0.75")};
   font-size: ${({ fontSize }) => fontSize};
   font-weight: 500;
   max-width: 80%;
@@ -111,7 +111,7 @@ const Headline = styled.h2`
 
 const Text = styled.p`
   color: var(--primary);
-  opacity: ${({ isMobile }) => (isMobile ? "0.5" : "0.75")};
+  opacity: ${({ $isMobile }) => ($isMobile ? "0.5" : "0.75")};
   font-size: ${({ fontSize }) => fontSize};
   font-weight: 500;
   max-width: 80%;

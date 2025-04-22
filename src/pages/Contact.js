@@ -10,15 +10,15 @@ import { colors } from "../assets/data";
 import LanguageContext from "../components/LanguageContext";
 
 const Contact = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const $isMobile = useMediaQuery({ maxWidth: 767 });
   const { language, texts } = useContext(LanguageContext);
   const { contact } = texts[language];
   const labels = ["HOURS", "ADDRESS", "EMAIL", "PHONE", "HEURES","ADRESSE","COURRIEL","TÉLÉPHONE"];
   const contactDetails = Object.entries(contact);
 
   return (
-    <FlexContainer id="/contact" fontSize={isMobile ? "1.1rem" : "1.75rem"}>
-      {!isMobile && (
+    <FlexContainer id="/contact" fontSize={$isMobile ? "1.1rem" : "1.75rem"}>
+      {!$isMobile && (
         <LeftContainer>
           <FluffyLogo
             src={newLogo}
@@ -28,7 +28,7 @@ const Contact = () => {
         </LeftContainer>
       )}
       <RightContainer>
-        <ContactDetails $padding={isMobile ? "0" : "30px"}>
+        <ContactDetails $padding={$isMobile ? "0" : "30px"}>
           {contactDetails.map((detail, i) => {
             const [key, value] = detail;
             const { label, text, href } = value;
@@ -36,7 +36,7 @@ const Contact = () => {
               <ContactDetail
                 color={colors[i]}
                 key={key}
-                isLabel={labels.includes(label)}
+                $isLabel={labels.includes(label)}
               >
                 <span>{label}:</span>
                 {i === 0 ? text : 
@@ -53,7 +53,7 @@ const Contact = () => {
             <img
               src={igIcon}
               alt="Instagram Icon"
-              height={isMobile ? "45px" : "50px"}
+              height={$isMobile ? "45px" : "50px"}
               loading="lazy"
             />
           </IgLink>
@@ -61,7 +61,7 @@ const Contact = () => {
             <img
               src={tiktokIcon}
               alt="TikTok Icon"
-              height={isMobile ? "40px" : "50px"}
+              height={$isMobile ? "40px" : "50px"}
               loading="lazy"
             />
           </TikTokLink>
@@ -121,7 +121,7 @@ const ContactDetails = styled.ul`
 
 const ContactDetail = styled.li`
   color: var(--primary-color);
-  font-weight: ${({ isLabel }) => (isLabel ? "500" : "300")};
+  font-weight: ${({ $isLabel }) => ($isLabel ? "500" : "300")};
   padding-bottom: 1.75rem;
   line-height: 1.5;
 
@@ -139,7 +139,7 @@ const ContactDetail = styled.li`
   }
 
   span {
-    font-weight: ${({ isLabel }) => (isLabel ? "500" : "300")};
+    font-weight: ${({ $isLabel }) => ($isLabel ? "500" : "300")};
     margin-right: 10px;
 
     @media (max-width: 767px) {
