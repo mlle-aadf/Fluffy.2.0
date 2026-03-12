@@ -13,7 +13,7 @@ const Contact = () => {
   const $isMobile = useMediaQuery({ maxWidth: 767 });
   const { language, texts } = useContext(LanguageContext);
   const { contact } = texts[language];
-  const labels = ["HOURS", "ADDRESS", "EMAIL", "PHONE", "HEURES","ADRESSE","COURRIEL","TÉLÉPHONE"];
+  const labels = ["HOURS", "ADDRESS", "EMAIL", "HEURES","ADRESSE","COURRIEL"];
   const contactDetails = Object.entries(contact);
 
   return (
