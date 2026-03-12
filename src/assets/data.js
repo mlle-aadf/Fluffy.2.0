@@ -20,7 +20,7 @@ const texts = {
             hours: {label: "HOURS", text: "M to S, 7 - 5"},
             address: {label: "ADDRESS", text: "4847 WELLINGTON ST.", href:"https://maps.app.goo.gl/DKZrqYSEHwRbHkMG9"},
             email: {label: "EMAIL", text: "CUSTOMERSERVICE@FLUFFYS.CA", href:"mailto: customerservice@fluffys.ca"},
-            phone: {label: "PHONE", text: "514 123-4567", href:"tel: 514 123-4567"}
+            // phone: {label: "PHONE", text: "514 123-4567", href:"tel: 514 123-4567"}
         }
     },
     fr: {
@@ -32,7 +32,7 @@ const texts = {
             hours: {label: "HEURES", text: "L à D, 7 - 5"},
             address: {label: "ADRESSE", text: "4847 RUE WELLINGTON", href:"https://maps.app.goo.gl/DKZrqYSEHwRbHkMG9"},
             email: {label: "COURRIEL", text: "CUSTOMERSERVICE@FLUFFYS.CA", href:"mailto: customerservice@fluffys.ca"},
-            phone: {label: "TÉLÉPHONE", text: "514 123 4567", href:"tel: 514 123-4567"}
+            // phone: {label: "TÉLÉPHONE", text: "514 123 4567", href:"tel: 514 123-4567"}
         }
     }
 };

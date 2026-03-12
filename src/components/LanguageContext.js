@@ -13,6 +13,7 @@ export const LanguageProvider = ({ children }) => {
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, texts}}>
+      {/* TO DO - setLanguage redundant? */}
       {children}
     </LanguageContext.Provider>
   );
